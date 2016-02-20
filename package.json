@@ -1,0 +1,9 @@
+{
+	"name" : "hawkpass-desktop",
+	"description" : "A cryptographically secure random password generator",
+	"version" : "0.0.1",
+	"main" : "main.js",
+	"script" : {
+		"start" : "electron main.js"
+	}
+}
