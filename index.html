@@ -2,12 +2,70 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hawkpass</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="assets/crypto-sha256.js"></script>
+    <script src="assets/generate.js"></script>
+    <script src="assets/random.j"s></script>
+    <script src="assets/wordlist.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" src="assets/images/favicon.ico">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navigation Bar -->
+    <div class="container">
+      <!-- Password Box -->
+      <div class="password_box">
+        <div class="well"></div>
+      </div>
+      <!-- End of Password Box -->
+      <!-- Preferences Box -->
+      <div class="preferences_box">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default first_row_button">
+            <input type="checkbox" autocomplete="off">
+            Numbers
+          </label>
+          <label class="btn btn-default first_row_button">
+            <input type="checkbox" autocomplete="off">
+            Symbols
+          </label>
+          <label class="btn btn-default first_row_button">
+            <input type="checkbox" autocomplete="off">
+            Spaces
+          </label>
+          <label class="btn btn-default first_row_button">
+            <input type="checkbox" autocomplete="off">
+            Diceware
+          </label>
+          <label class="btn btn-default first_row_button">
+            <input type="checkbox" autocomplete="off">
+            More Words
+          </label>
+        </div>
+      </div>
+      <!-- End of Preferences Box -->
+      <!-- Buttons Box -->
+      <div class="buttons_box">
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default second_row_button" id="generate_button">Generate</button>
+          <button type="button" class="btn btn-default second_row_button" id="reset_button">Reset</button>
+        </div>
+      </div>
+      <!-- End of Buttons Box -->
+    </div>
+    <!-- Footer -->
+    <!-- End of Footer -->
   </body>
 </html>
