@@ -1,7 +1,5 @@
-// Load jQuery
-$ = require('./bower_components/jquery/dist/jquery.min.js');
-// Start
 $(document).ready(function(){
+  $('.stats_box').hide();
   $('.generate').click(function() {
     var x = Math.random();
     var y = Math.random();

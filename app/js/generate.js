@@ -1,6 +1,5 @@
 // Copyright 2011 Gavin Wahl, Colin Thomas-Arnold, Fusionbox.
-// Modified and updated by Petros Kalogiannakis 2016.
-// All rights reserved.
+// Modified by Petros Kalogiannakis. All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
@@ -25,7 +24,8 @@
 // The views and conclusions contained in the software and documentation are those of the
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of Fusionbox.
-(function(exports, $) {
+function(exports, $) {
+  alert("aasdasd");
   var TOTAL_EVENTS = 500
     , events_left = TOTAL_EVENTS;
 
