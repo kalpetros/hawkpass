@@ -2,17 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hawkpass</title>
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src="assets/crypto-sha256.js"></script>
-    <script src="assets/generate.js"></script>
-    <script src="assets/random.j"s></script>
-    <script src="assets/wordlist.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- End of Stylesheets -->
+    <!-- JavaScript files -->
+    <script src="assets/js/generate.js"></script>
+    <script src="assets/js/random.j"s></script>
+    <script src="assets/js/wordlist.js"></script>
+    <script src="assets/js/test.js"></script>
+    <!-- End of JavaScript files -->
   </head>
-  <body>
+  <body style="background-image: url('assets/images/background.png');">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -20,52 +22,91 @@
           <a class="navbar-brand" href="#">
             <img alt="Brand" src="assets/images/favicon.ico">
           </a>
+          <p class="navbar-text">Version 0.0.1-Alpha</p>
         </div>
       </div>
     </nav>
     <!-- End of Navigation Bar -->
+    <!-- Container -->
     <div class="container">
       <!-- Password Box -->
       <div class="password_box">
-        <div class="well"></div>
+        <div class="well password"></div>
       </div>
       <!-- End of Password Box -->
       <!-- Preferences Box -->
       <div class="preferences_box">
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-default first_row_button">
+          <label class="btn btn-default preferences">
             <input type="checkbox" autocomplete="off">
             Numbers
           </label>
-          <label class="btn btn-default first_row_button">
+          <label class="btn btn-default preferences">
             <input type="checkbox" autocomplete="off">
             Symbols
           </label>
-          <label class="btn btn-default first_row_button">
+          <label class="btn btn-default preferences">
             <input type="checkbox" autocomplete="off">
             Spaces
           </label>
-          <label class="btn btn-default first_row_button">
+          <label class="btn btn-default preferences">
             <input type="checkbox" autocomplete="off">
             Diceware
           </label>
-          <label class="btn btn-default first_row_button">
+          <label class="btn btn-default preferences">
             <input type="checkbox" autocomplete="off">
             More Words
           </label>
         </div>
       </div>
       <!-- End of Preferences Box -->
-      <!-- Buttons Box -->
-      <div class="buttons_box">
-        <div class="btn-group" role="group" aria-label="...">
-          <button type="button" class="btn btn-default second_row_button" id="generate_button">Generate</button>
-          <button type="button" class="btn btn-default second_row_button" id="reset_button">Reset</button>
+      <!-- Stats Box -->
+      <div class="stats_box">
+        <div class="well bits_of_entropy"></div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Case Scenarios</h3>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td>Seconds</td>
+                    <td>Minutes</td>
+                    <td>Hours</td>
+                    <td>Days</td>
+                    <td>Years</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="one"></td>
+                    <td class="one"></td>
+                    <td class="one"></td>
+                    <td class="one"></td>
+                    <td class="one"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- End of Buttons Box -->
+      <!-- End of Stats Box -->
     </div>
-    <!-- Footer -->
-    <!-- End of Footer -->
+    <!-- End of Container -->
+    <!-- Buttons Box -->
+    <div class="buttons_box">
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default generate">Generate</button>
+        <button type="button" class="btn btn-default reset">Reset</button>
+      </div>
+    </div>
+    <!-- End of Buttons Box -->
+    <!-- Entropy Box -->
+    <div class="entropy_box">
+    </div>
+    <!-- End of Entropy Box -->
   </body>
 </html>
