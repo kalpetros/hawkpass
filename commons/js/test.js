@@ -6,7 +6,7 @@ $(document).ready(function(){
     var x = Math.random();
     var y = Math.random();
     var result = x*100+y*100;
-    $('.password').append(result);
+    $('.password').append("Generated password: " + result);
     $('.stats_box').show();
     $('.bits_of_entropy').append(result.toFixed(2) + " bits of entropy");
     $('.one').append(result.toFixed(0));

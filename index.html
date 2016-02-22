@@ -3,30 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="commons/css/app.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="assets/crypto-sha256.js"></script>
+    <script src="commons/crypto-sha256.js"></script>
     <!-- End of Stylesheets -->
     <!-- JavaScript files -->
-    <script src="assets/js/generate.js"></script>
-    <script src="assets/js/random.j"s></script>
-    <script src="assets/js/wordlist.js"></script>
-    <script src="assets/js/test.js"></script>
+    <script src="commons/js/generate.js"></script>
+    <script src="commons/js/random.j"s></script>
+    <script src="commons/js/wordlist.js"></script>
+    <script src="commons/js/test.js"></script>
     <!-- End of JavaScript files -->
   </head>
-  <body style="background-image: url('assets/images/background.png');">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="assets/images/favicon.ico">
-          </a>
-          <p class="navbar-text">Version 0.0.1-Alpha</p>
-        </div>
-      </div>
-    </nav>
-    <!-- End of Navigation Bar -->
+  <body style="background-image: url('commons/images/background.png');">
     <!-- Container -->
     <div class="container">
       <!-- Password Box -->
@@ -37,23 +25,23 @@
       <!-- Preferences Box -->
       <div class="preferences_box">
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-default preferences">
+          <label class="btn btn-primary preferences">
             <input type="checkbox" autocomplete="off">
             Numbers
           </label>
-          <label class="btn btn-default preferences">
+          <label class="btn btn-primary preferences">
             <input type="checkbox" autocomplete="off">
             Symbols
           </label>
-          <label class="btn btn-default preferences">
+          <label class="btn btn-primary preferences">
             <input type="checkbox" autocomplete="off">
             Spaces
           </label>
-          <label class="btn btn-default preferences">
+          <label class="btn btn-primary preferences">
             <input type="checkbox" autocomplete="off">
             Diceware
           </label>
-          <label class="btn btn-default preferences">
+          <label class="btn btn-primary preferences">
             <input type="checkbox" autocomplete="off">
             More Words
           </label>
@@ -63,7 +51,7 @@
       <!-- Stats Box -->
       <div class="stats_box">
         <div class="well bits_of_entropy"></div>
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Case Scenarios</h3>
           </div>
@@ -99,8 +87,8 @@
     <!-- Buttons Box -->
     <div class="buttons_box">
       <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default generate">Generate</button>
-        <button type="button" class="btn btn-default reset">Reset</button>
+        <button type="button" class="btn btn-primary generate">Generate</button>
+        <button type="button" class="btn btn-primary reset">Reset</button>
       </div>
     </div>
     <!-- End of Buttons Box -->

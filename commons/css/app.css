@@ -5,48 +5,46 @@ html {
 body {
   margin-bottom: 60px;
 }
-/* Navbar */
-.navbar {
+/* Well background color */
+.well {
+  color: white;
+  background-color: #2e2e2e !important;
   border-style: none !important;
-  border-radius:  0 !important;
-}
-/* Navbar background color */
-.navbar.navbar-default {
-  background-color: rgba(255, 255, 255, 0.1);
 }
 /* Width of btn-group */
 .btn-group {
   width: 100%;
 }
 /* Distance between boxes */
+.password_box,
 .preferences_box,
 .stats_box {
-  margin-top: 2%;
+  margin-top: 5%;
 }
 /* Style of password_box */
 .password_box {
   text-align: center;
+  border-top: 4px solid #337ab7;
 }
 .password {
   border-radius: 0 !important;
 }
 /* Style of preferences_box */
 .preferences_box {
-  border-top: 5px solid yellow;
 }
 /* Preferences buttons */
 .preferences {
   /*background-color: yellow !important;*/
-  height: 50px;
   width: 20.05%;
-  border-style: none !important;
   border-radius: 0 !important;
 }
 /* Style of stats_box */
 .stats_box {
+  border-top: 4px solid #337ab7;
   text-align: center;
 }
-.panel {
+.panel,
+.panel-heading {
   border-radius: 0 !important;
 }
 .bits_of_entropy {
@@ -56,9 +54,9 @@ body {
 .buttons_box {
   position: absolute;
   bottom: 0;
-  width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
+  width: 100%;
 }
 /* Generate & reset buttons */
 .generate,
@@ -66,7 +64,6 @@ body {
   /*background-color: yellow !important;*/
   height: 60px;
   width: 50%;
-  border-style: none !important;
   border-radius: 0 !important;
 }
 /* Style of entropy_box */
