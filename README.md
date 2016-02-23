@@ -1,12 +1,32 @@
 ![](logo.png)
 
+[![Build Status](https://travis-ci.org/kalpetros/hawkpass-desktop.svg?branch=master)](https://travis-ci.org/kalpetros/hawkpass-desktop)
+
 A simple cross-platform cryptographically secure random number generator based on entropy created by your mouse movements that generates easy to remember passwords based on the [Diceware](http://world.std.com/~reinhold/diceware.html) list.
 
 Hawkpass Desktop is the desktop version of the web app [Hawkpass](http://www.petroskal.com/hawkpass), and it is built on [Electron](https://github.com/atom/electron).
 
-[![Build Status](https://travis-ci.org/kalpetros/hawkpass-desktop.svg?branch=master)](https://travis-ci.org/kalpetros/hawkpass-desktop)
-
 ![](hawkpass.png)
+
+## Testing locally
+
+To run the app locally you'll need to install *electron-prebuilt* with npm
+
+Install *electron-prebuilt* globally:
+```
+sudo npm install electron-prebuilt -g
+```
+or locally:
+```
+npm install electron-prebuilt
+```
+Once *electron-prebuilt* is installed you will only need to run the following in the app's source directory:
+```
+// If you installed it globally
+electron .
+// If you installed it locally
+./node_modules/.bin/electron .
+```
 
 ## Packaging Hawkpass
 
