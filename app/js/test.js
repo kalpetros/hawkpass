@@ -4,10 +4,14 @@ $(document).ready(function(){
     var x = Math.random();
     var y = Math.random();
     var result = x*100+y*100;
-    $('.password').append("Generated password: " + result);
+    $('.password').append("Generated password: " + "LairYe+DoraFoistEthos");
     $('.stats_box').show();
-    $('.bits_of_entropy').append(result.toFixed(2) + " bits of entropy");
-    $('.one').append(result.toFixed(0));
+    $('.bits_of_entropy').append("67.9" + " bits of entropy");
+    $('.one').append("142,151,440.1");
+    $('.two').append("2,369,190.7");
+    $('.three').append("39,486.5");
+    $('.four').append("1,645.3");
+    $('.five').append("4.5");
   })
   $('.reset').click(function() {
     $('.password').empty();
