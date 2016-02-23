@@ -4,7 +4,7 @@ $(document).ready(function(){
     var x = Math.random();
     var y = Math.random();
     var result = x*100+y*100;
-    $('.password').append("Generated password: " + "LairYe+DoraFoistEthos");
+    $('.password').append("LairYe+DoraFoistEthos");
     $('.stats_box').show();
     $('.bits_of_entropy').append("67.9" + " bits of entropy");
     $('.one').append("142,151,440.1");
