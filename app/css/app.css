@@ -5,6 +5,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* About modal text alignement*/
 .modal-about {
   text-align: center;
 }

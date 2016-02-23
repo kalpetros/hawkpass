@@ -25,13 +25,15 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 0.0.1-Alpha'
+        label: 'Version 0.0.1-Alpha',
+        enabled: 'FALSE'
       },
       {
         type: 'separator'
       },
       {
         label: 'Frequently Asked Questions',
+        // Toggle FAQ Modal
         click: function() {
           $('#faq').modal('toggle');
         }
@@ -40,17 +42,18 @@ var template = [
         type: 'separator'
       },
       {
-        label: 'About Hawkpass',
-        click: function() {
-          $('#about').modal('toggle');
-        }
+        label: 'Report Issue',
+        click: function() { require('electron').shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/issues') }
       },
       {
         type: 'separator'
       },
       {
-        label: 'Report Issue',
-        click: function() { require('electron').shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/issues') }
+        label: 'About Hawkpass',
+        // Toggle About Modal
+        click: function() {
+          $('#about').modal('toggle');
+        }
       }
     ]
   },
