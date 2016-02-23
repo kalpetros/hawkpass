@@ -10,7 +10,7 @@ Hawkpass Desktop is the desktop version of the web app [Hawkpass](http://www.pet
 
 ## Testing locally
 
-To run the app locally you'll need to install *electron-prebuilt* with npm
+To run the app locally you'll need to install *electron-prebuilt* with npm.
 
 Install *electron-prebuilt* globally:
 ```
