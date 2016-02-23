@@ -8,17 +8,111 @@
     <script src="app/crypto-sha256.js"></script>
     <!-- End of Stylesheets -->
     <!-- JavaScript files -->
+    <script>window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');</script>
     <script src="js/generate.js"></script>
     <script src="js/random.js"></script>
     <script src="js/wordlist.js"></script>
-    <script src="js/teest.js"></script>
-    <script>window.$ = window.jQuery = require('bower_components/jquery/dist/jquery.min.js');</script>
-    <script>window.$ = window.jQuery = require('bower_components/bootstrap/dist/js/bootstrap.min.js');</script>
+    <script src="js/tesst.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- End of JavaScript files -->
   </head>
   <body style="background-image: url('images/background.png');">
     <!-- Container -->
     <div class="container">
+      <!-- About Box (Modal) -->
+      <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="About">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="aboutTitle">About</h4>
+            </div>
+            <div class="modal-body modal-about">
+              <h1><img src="images/favicon.ico"> Hawkpass</h1>
+              <h4>0.0.1-Alpha</h4>
+              <p>The source code is available on <a href="https://github.com/kalpetros/hawkpass"><i class="fa fa-github"></i> Github</a>.</p>
+				    	<p>Inspired by: <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> by <a href="http://world.std.com/~reinhold/">Arnold G. Reinhold</a>, <a href="https://github.com/fusionbox/mouseware">Mouseware</a> by <a href="https://github.com/fusionbox">Fusionbox</a>, <a href="https://xkcd.com/936/">XKCD</a></p>
+							<p><> by Petros Kalogiannakis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of About Box (Modal) -->
+      <!-- FAQ Box (Modal) -->
+      <div class="modal fade" id="faq" tabindex="-1" role="dialog" aria-labelledby="FAQ">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="faq-title">Frequently Asked Questions</h4>
+            </div>
+            <div class="modal-body">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingZero">
+							  		<h4 class="panel-title">
+							    		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseZero">What is Hawkpass?</a>
+							  		</h4>
+									</div>
+									<div id="collapseZero" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingZero">
+								  		<div class="panel-body">
+                        Hawkpass uses a cryptographically secure random number generator based on your mouse movements to generate easy to remember passwords based on the Diceware list.
+								  		</div>
+									</div>
+								</div>
+                <div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingOne">
+							  		<h4 class="panel-title">
+							    		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Entropy</a>
+							  		</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+								  		<div class="panel-body">
+								    		Think of entropy as randomness. In computing, entropy is the randomness collected from hardware sources, mouse movements or randomness generators for use in cryptography.
+						    				<blockquote>Entropy is a measure of the uncertainty or randomness of a system. The concept is a difficult one to grasp fully and is confusing, even to experts. Strictly speaking, any given passphrase has an entropy of zero because it is already chosen. It is the method you use to randomly select your passphrase that has entropy. Entropy tells how hard it will be to guess the passphrase itself even if an attacker knows the method you used to select your passphrase. A passphrase is more secure if it is selected using a method that has more entropy.</br>
+											Entropy is measured in bits. The outcome of a single coin toss -- "heads or tails" -- has one bit of entropy.</br></br>
+ 											<small><cite>Arnold G. Reinhold - Diceware <a href="http://world.std.com/~reinhold/dicewarefaq.html#entropy" target="_blank">FAQ</a></cite></small>
+												</blockquote>
+								  		</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingTwo">
+							  		<h4 class="panel-title">
+							    		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">True randomness</a>
+							  		</h4>
+									</div>
+									<div id="collapseTwo" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingTwo">
+							  		<div class="panel-body">
+							  			People don't tend to use password generators because they feel they can come up with very strong "random" password themeselves. But the truth is that we humans are species of patterns and we can't do anything randomly. Even if you think you choose a phrase made from completely random words this phrase is influenced by the probability of a phrase occuring in natural language. [<a href="http://www.jbonneau.com/doc/BS12-USEC-passphrase_linguistics.pdf">1</a>]
+							  			</br></br>
+							  			You can also use a computer to generate a password but how secure is that?</br>
+							  			Most random numbers generated by computers are pseudo-random i.e. they are generated using a mathematical formula, which is predictable.</br></br>
+							    		The only true randomness is the one that comes from nature. One example of true randomness is atmospheric noise.
+							    		A software that uses randomness derived from nature is much more secure than a software with computer generated randomness. [<a href="https://www.random.org/">2</a>]
+							  		</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingThree">
+							  		<h4 class="panel-title">
+							    		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Is it safe to use?</a>
+							  		</h4>
+									</div>
+									<div id="collapseThree" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingThree">
+							  		<div class="panel-body">
+							  			Everything is running locally in your browser. None of the passwords generated here are sent anywhere. Once the main page is loaded you can even run the application without an internet connection.
+							    		This application is just HTML, CSS and Javascript. There is nothing running on a server and no code (jQuery, Bootstrap) is served from a Content Delivery Network (CDN).
+							  		</div>
+									</div>
+								</div>
+							</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of FAQ Box (Modal) -->
       <!-- Password Box -->
       <div class="password_box">
         <div class="well password"></div>
@@ -88,7 +182,7 @@
     <!-- End of Container -->
     <!-- Buttons Box -->
     <div class="buttons_box">
-      <div class="btn-group" role="group" aria-label="...">
+      <div class="btn-group" role="group" aria-label="buttons">
         <button type="button" class="btn btn-primary generate">Generate</button>
         <button type="button" class="btn btn-primary reset">Reset</button>
       </div>
