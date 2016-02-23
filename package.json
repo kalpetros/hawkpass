@@ -1,9 +1,16 @@
 {
-	"name" : "hawkpass-desktop",
-	"description" : "A cryptographically secure random password generator",
-	"version" : "0.0.1",
-	"main" : "main.js",
-	"script" : {
-		"start" : "electron main.js"
-	}
+  "name": "hawkpass-desktop",
+  "description": "A cryptographically secure random password generator",
+  "version": "0.0.1",
+  "main": "main.js",
+  "script": {
+    "start": "electron main.js"
+  },
+  "devDependencies": {
+    "electron-packager": "~5.2.1"
+  },
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ Hawkpass --all --out ~/Projects/Hawkpass --version 0.36.8 --overwrite"
+  }
 }
