@@ -25,7 +25,7 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 0.0.1-Alpha',
+        label: 'Version 0.0.2-Alpha',
         enabled: 'FALSE'
       },
       {
