@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/pace.css">
     <!-- End of Stylesheets -->
     <!-- JavaScript files -->
     <script>window.$ = window.jQuery = require('./bower_components/jquery/dist/jquery.min.js');</script>
@@ -12,6 +13,7 @@
     <script src="js/crypto-sha256.js"></script>
     <script src="js/generate.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/pace.min.js"></script>
     <script src="js/random.js"></script>
     <script src="js/wordlist.js"></script>
     <script src="js/test.js"></script>
@@ -31,9 +33,9 @@
             <div class="modal-body modal-about">
               <h1><img src="images/favicon.ico"> Hawkpass</h1>
               <h4>0.0.2-Alpha</h4>
-              <p>The source code is available on <a href="https://github.com/kalpetros/hawkpass-desktop"></p>
-				    	<p>Inspired by: <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> by <a href="http://world.std.com/~reinhold/">Arnold G. Reinhold</a>, <a href="https://github.com/fusionbox/mouseware">Mouseware</a> by <a href="https://github.com/fusionbox">Fusionbox</a>, <a href="https://xkcd.com/936/">XKCD</a></p>
-							<p><> by <a href="https://github.com/kalpetros">Petros Kalogiannakis</a></p>
+              <p>The source code is available on <a href="https://github.com/kalpetros/hawkpass-desktop">Github</a></p>
+				    	<p><b>Inspired by:</b> <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> by <a href="http://world.std.com/~reinhold/">Arnold G. Reinhold</a>, <a href="https://github.com/fusionbox/mouseware">Mouseware</a> by <a href="https://github.com/fusionbox">Fusionbox</a>, <a href="https://xkcd.com/936/">XKCD</a></p>
+							<p><b>Coded</b> by <a href="https://github.com/kalpetros">Petros Kalogiannakis</a></p>
             </div>
           </div>
         </div>
@@ -112,84 +114,89 @@
         </div>
       </div>
       <!-- End of FAQ Box (Modal) -->
-      <!-- Password Box -->
-      <div class="password_box">
-        <div class="well password"></div>
+      <!-- Entropy Page -->
+      <div class="entropy">
+        <h1> Move your mouse to add entropy</h1>
       </div>
-      <!-- End of Password Box -->
-      <!-- Preferences Box -->
-      <div class="preferences_box">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary preferences">
-            <input type="checkbox" autocomplete="off">
-            Numbers
-          </label>
-          <label class="btn btn-primary preferences">
-            <input type="checkbox" autocomplete="off">
-            Symbols
-          </label>
-          <label class="btn btn-primary preferences">
-            <input type="checkbox" autocomplete="off">
-            Spaces
-          </label>
-          <label class="btn btn-primary preferences">
-            <input type="checkbox" autocomplete="off">
-            Diceware
-          </label>
-          <label class="btn btn-primary preferences">
-            <input type="checkbox" autocomplete="off">
-            More Words
-          </label>
+      <!-- End of Entropy Page -->
+      <!-- Password Generation -->
+      <div class="password_generation">
+        <!-- Password Box -->
+        <div class="password_box">
+          <div class="well password"></div>
         </div>
-      </div>
-      <!-- End of Preferences Box -->
-      <!-- Stats Box -->
-      <div class="stats_box">
-        <div class="well bits_of_entropy"></div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Case Scenarios</h3>
+        <!-- End of Password Box -->
+        <!-- Preferences Box -->
+        <div class="preferences_box">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary preferences">
+              <input type="checkbox" autocomplete="off">
+              Numbers
+            </label>
+            <label class="btn btn-primary preferences">
+              <input type="checkbox" autocomplete="off">
+              Symbols
+            </label>
+            <label class="btn btn-primary preferences">
+              <input type="checkbox" autocomplete="off">
+              Spaces
+            </label>
+            <label class="btn btn-primary preferences">
+              <input type="checkbox" autocomplete="off">
+              Diceware
+            </label>
+            <label class="btn btn-primary preferences">
+              <input type="checkbox" autocomplete="off">
+              More Words
+            </label>
           </div>
-          <div class="panel-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td>Seconds</td>
-                    <td>Minutes</td>
-                    <td>Hours</td>
-                    <td>Days</td>
-                    <td>Years</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="one"></td>
-                    <td class="two"></td>
-                    <td class="three"></td>
-                    <td class="four"></td>
-                    <td class="five"></td>
-                  </tr>
-                </tbody>
-              </table>
+        </div>
+        <!-- End of Preferences Box -->
+        <!-- Stats Box -->
+        <div class="stats_box">
+          <div class="well bits_of_entropy"></div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Case Scenarios</h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Seconds</td>
+                      <td>Minutes</td>
+                      <td>Hours</td>
+                      <td>Days</td>
+                      <td>Years</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="one"></td>
+                      <td class="two"></td>
+                      <td class="three"></td>
+                      <td class="four"></td>
+                      <td class="five"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
+        <!-- End of Stats Box -->
       </div>
-      <!-- End of Stats Box -->
+      <!-- End of Password Generation Page -->
     </div>
     <!-- End of Container -->
     <!-- Buttons Box -->
-    <div class="buttons_box">
+    <div class="buttons_box password_generation">
       <div class="btn-group" role="group" aria-label="buttons">
         <button type="button" class="btn btn-primary generate">Generate</button>
         <button type="button" class="btn btn-primary reset">Reset</button>
       </div>
     </div>
     <!-- End of Buttons Box -->
-    <!-- Entropy Box -->
-    <div class="entropy_box">
-    </div>
-    <!-- End of Entropy Box -->
   </body>
 </html>

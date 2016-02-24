@@ -5,7 +5,21 @@ html {
 body {
   margin-bottom: 60px;
 }
-/* About modal text alignement*/
+/* Entropy page style */
+.entropy {
+  color: white;
+  text-align: center;
+}
+.entropy h1 {
+  left: 0;
+  line-height: 200px;
+  margin: auto;
+  margin-top: -100px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+/* About modal text alignement */
 .modal-about {
   text-align: center;
 }
@@ -54,7 +68,7 @@ body {
 .bits_of_entropy {
   border-radius: 0 !important;
 }
-/* Style of buttons_box */
+/* Position of buttons_box, entropy_bar */
 .buttons_box {
   position: absolute;
   bottom: 0;
@@ -69,8 +83,4 @@ body {
   height: 60px;
   width: 50%;
   border-radius: 0 !important;
-}
-/* Style of entropy_box */
-.entropy_box {
-  text-align: center;
 }

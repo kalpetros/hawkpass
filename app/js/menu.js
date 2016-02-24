@@ -8,6 +8,19 @@ const Menu = remote.Menu;
 
 var template = [
   {
+    label: 'Entropy',
+    submenu: [
+      {
+        label: 'Add Entropy',
+        accelerator: 'CmdOrCtrl+E',
+        click: function() {
+          $('.password_generation').hide();
+          $('.entropy').show();
+        }
+      }
+    ]
+  },
+  {
     label: 'View',
     submenu: [
       {
@@ -16,6 +29,19 @@ var template = [
         click: function(item, focusedWindow) {
           if (focusedWindow)
             focusedWindow.reload();
+        }
+      },
+      {
+        label: 'Toggle Full Screen',
+        accelerator: (function() {
+          if (process.platform == 'darwin')
+            return 'Ctrl+Command+F';
+          else
+            return 'F11';
+        })(),
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
         }
       }
     ]
