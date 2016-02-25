@@ -1,5 +1,6 @@
 // Copyright 2011 Gavin Wahl, Colin Thomas-Arnold, Fusionbox.
-// Modified by Petros Kalogiannakis. All rights reserved.
+// Updated and modified by Petros Kalogiannakis 2016.
+// All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
@@ -139,10 +140,14 @@
   };
 
   $(document).ready(function() {
+    // Stats box is initially hidden
+    $('.stats_box').hide();
+    
     var more_entropy_progress_div = $('.entropy_mouse .entropy_bar div')
       , reminder_elem = $('.entropy_mouse .reminder')
       , show_reminder = function() { reminder_elem.addClass('visible'); }
       , reminder_timeout = null
+      // Generate password on button (Generate) click
       , generate_password = function() {
           var template = ['adjective', 'noun', 'verb', 'adjective', 'noun']
             , options_form = $('#options')[0];
@@ -184,27 +189,22 @@
             return val;
           };
 
-          $('.stats .entropy').html(entropy + " bits of entropy");
-          $('.stats .seconds').html("~ " + commaSeparateNumber((possibles / large_guesses_per_seconds).toFixed(1)) + " seconds");
-          $('.stats .minutes').html("~ " + commaSeparateNumber((possibles / large_guesses_per_minutes).toFixed(1)) + " minutes");
-          $('.stats .hours').html("~ " + commaSeparateNumber((possibles / large_guesses_per_hour).toFixed(1)) + " hours");
-          $('.stats .days').html("~ " + commaSeparateNumber((possibles / large_guesses_per_days).toFixed(1)) + " days");
-          $('.stats .years').html("~ " + commaSeparateNumber((possibles / large_guesses_per_years).toFixed(1)) + " years");
-          $('.stats .worstcase').html("Worst case scenario:");
-          $('.stats .worstcase').css("border-bottom", "1px solid #009966");
-          $('.stats .worstcasetext').html("Assuming that someone is capable of guessing passwords at the rate of a trillion (1,000,000,000,000) key/second, a search on 50% of the total keyspace will take:");
+          // Show boxes and append stats
+          $('.stats_box').show();
+          $('.bits_of_entropy').text(entropy + " bits of entropy");
+          $('.seconds').text("~ " + commaSeparateNumber((possibles / large_guesses_per_seconds).toFixed(1)) + " seconds");
+          $('.minutes').text("~ " + commaSeparateNumber((possibles / large_guesses_per_minutes).toFixed(1)) + " minutes");
+          $('.hours').text("~ " + commaSeparateNumber((possibles / large_guesses_per_hour).toFixed(1)) + " hours");
+          $('.days').text("~ " + commaSeparateNumber((possibles / large_guesses_per_days).toFixed(1)) + " days");
+          $('.years').text("~ " + commaSeparateNumber((possibles / large_guesses_per_years).toFixed(1)) + " years");
+          $('.worstcasetext').text("Assuming that someone is capable of guessing passwords at the rate of a trillion (1,000,000,000,000) key/second, a search on 50% of the total keyspace will take:");
         }
+      // Remove everything on button (Reset) click
       , reset_password = function() {
-          $('.mainb .password').text("Click Generate to generate a new password");
-          $('.stats .entropy').html("");
-          $('.stats .seconds').html("");
-          $('.stats .minutes').html("");
-          $('.stats .hours').html("");
-          $('.stats .days').html("");
-          $('.stats .years').html("");
-          $('.stats .worstcase').html("");
-          $('.stats .worstcasetext').html("");
-          $('.stats .worstcase').css("border", "none");
+          $('.password').empty();
+          $('.bits_of_entropy').empty();
+          $('.one, .two, .three, .four, .five').empty();
+          $('.stats_box').hide();
         };
     // Check checkboxes
     $('input[type="checkbox"]:checked').parent('label').addClass('active');
