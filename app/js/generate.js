@@ -24,14 +24,13 @@
 // The views and conclusions contained in the software and documentation are those of the
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of Fusionbox.
-function(exports, $) {
-  alert("aasdasd");
+(function(exports, $) {
   var TOTAL_EVENTS = 500
     , events_left = TOTAL_EVENTS;
 
-  if ( random.ready() ) {
-    events_left = 0;
-  };
+  //if ( random.ready() ) {
+    //events_left = 0;
+  //};
 
   function parseOptions(options) {
     return $.extend({
@@ -153,8 +152,8 @@ function(exports, $) {
 
           if ( options_form.diceware.checked ) {
             template = ['diceware', 'diceware', 'diceware', 'diceware', 'diceware'];
-            if ( options_form.use_more_words.checked )
-              template = template.concat(['diceware', 'diceware']);
+          if ( options_form.use_more_words.checked )
+            template = template.concat(['diceware', 'diceware']);
           }
 
           var sentence = exports.sentencePassword(template, {
@@ -163,7 +162,8 @@ function(exports, $) {
           , use_spaces: options_form.use_spaces.checked
           });
 
-          $('.mainb .password').text(sentence.password);
+          // Append generated password to password box (password class)
+          $('.password').text(sentence.password);
 
           var entropy = sentence.entropy.toFixed(1)
             , possibles = Math.pow(2, sentence.entropy - 1) // on average, only half the possibilities will be needed.  so -1 exponent
@@ -208,16 +208,12 @@ function(exports, $) {
         };
     // Check checkboxes
     $('input[type="checkbox"]:checked').parent('label').addClass('active');
-    // Tooltip
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-    // Popover
-    $('.fa-info-circle').popover(options);
 
-    $('#generate_button').click(generate_password);
+    // Generate password on button (generate) click
+    $('.generate').click(generate_password);
 
-    $('#reset_button').click(reset_password);
+    // Reset everything (except entropy)
+    $('.reset').click(reset_password);
 
     if ( events_left == 0 ) {
       $('.entropy_mouse').hide();

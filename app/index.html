@@ -16,7 +16,7 @@
     <script src="js/pace.min.js"></script>
     <script src="js/random.js"></script>
     <script src="js/wordlist.js"></script>
-    <script src="js/test.js"></script>
+    <script src="js/tsest.js"></script>
     <!-- End of JavaScript files -->
   </head>
   <body style="background-image: url('images/background.png');">
@@ -128,28 +128,28 @@
         <!-- End of Password Box -->
         <!-- Preferences Box -->
         <div class="preferences_box">
-          <div class="btn-group" data-toggle="buttons">
+          <form class="btn-group" id="options" data-toggle="buttons">
             <label class="btn btn-primary preferences">
-              <input type="checkbox" autocomplete="off">
+              <input type="checkbox" name="use_number" autocomplete="off">
               Numbers
             </label>
             <label class="btn btn-primary preferences">
-              <input type="checkbox" autocomplete="off">
+              <input type="checkbox" name="use_symbol" autocomplete="off">
               Symbols
             </label>
             <label class="btn btn-primary preferences">
-              <input type="checkbox" autocomplete="off">
+              <input type="checkbox" name="use_spaces" autocomplete="off">
               Spaces
             </label>
             <label class="btn btn-primary preferences">
-              <input type="checkbox" autocomplete="off">
+              <input type="checkbox" name="diceware" autocomplete="off">
               Diceware
             </label>
             <label class="btn btn-primary preferences">
-              <input type="checkbox" autocomplete="off">
+              <input type="checkbox" name="use_more_words" autocomplete="off">
               More Words
             </label>
-          </div>
+          </form>
         </div>
         <!-- End of Preferences Box -->
         <!-- Stats Box -->
