@@ -24,5 +24,11 @@
       $('.one, .two, .three, .four, .five').empty();
       $('.stats_box').hide();
     })
+    $(document).mousemove(function(event){
+      var x = event.pageX/10;
+      var y = event.pageY/10;
+      var z = x - y;
+      $(".progress-bar").css("width", z + "%");
+    });
   });
 })(window, jQuery)
