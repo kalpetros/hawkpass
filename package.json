@@ -1,7 +1,7 @@
 {
   "name": "hawkpass-desktop",
   "description": "A cryptographically secure random password generator",
-  "version": "0.0.2-Alpha",
+  "version": "0.0.5-Alpha",
   "main": "main.js",
   "script": {
     "start": "electron main.js"
