@@ -5,6 +5,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* Code block */
+kbd {
+  background-color: #337ab7;
+}
 /* Entropy & password text style */
 .entropy_page,
 .password_page {
@@ -70,7 +74,8 @@ body {
   border-radius: 0 !important;
 }
 /* Position of buttons_box, entropy_bar */
-.buttons_box {
+.buttons_box,
+.entropy_bar {
   position: absolute;
   bottom: 0;
   /* Set the fixed height of the footer here */
@@ -84,4 +89,10 @@ body {
   height: 60px;
   width: 50%;
   border-radius: 0 !important;
+}
+/* Entropy progress bar style */
+.progress {
+  height: 60px;
+  margin-bottom: 0;
+  border-radius: 0px;
 }

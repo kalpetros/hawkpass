@@ -141,9 +141,11 @@
 
   $(document).ready(function() {
     // Set welcome password text
-    $('.welcome_password').html("Click <code>Generate</code> to generate a password");
+    $('.welcome_password').html("Click <kbd>Generate</kbd> to generate a password");
     // Stats box is initially hidden
     $('.stats_box').hide();
+    // Entropy bar is initially hidden
+    $('.entropy_bar').hide();
 
     var more_entropy_progress_div = $('.entropy_mouse .entropy_bar div')
       , reminder_elem = $('.entropy_mouse .reminder')
@@ -190,24 +192,31 @@
             }
             return val;
           };
-
           // Show boxes and append stats
-          $('.welcome_password').hide();
+          $('.welcome_password').empty();
           $('.stats_box').show();
           $('.bits_of_entropy').text(entropy + " bits of entropy");
+          $('.worstcaseheader').text("Case scenario");
+          $('.worstcasetext').text("Assuming that someone is capable of guessing passwords at the rate of a trillion (1,000,000,000,000) keys/second, a search on 50% of the total keyspace will take:");
+          $('.secondsheader').text("Seconds");
+          $('.minutesheader').text("Minutes");
+          $('.hoursheader').text("Hours");
+          $('.daysheader').text("Days");
+          $('.yearsheader').text("Years");
           $('.seconds').text(commaSeparateNumber((possibles / large_guesses_per_seconds).toFixed(1)) + " seconds");
           $('.minutes').text(commaSeparateNumber((possibles / large_guesses_per_minutes).toFixed(1)) + " minutes");
           $('.hours').text(commaSeparateNumber((possibles / large_guesses_per_hour).toFixed(1)) + " hours");
           $('.days').text(commaSeparateNumber((possibles / large_guesses_per_days).toFixed(1)) + " days");
           $('.years').text(commaSeparateNumber((possibles / large_guesses_per_years).toFixed(1)) + " years");
-          $('.worstcasetext').text("Assuming that someone is capable of guessing passwords at the rate of a trillion (1,000,000,000,000) keys/second, a search on 50% of the total keyspace will take:");
         }
       // Remove everything on button (Reset) click
       , reset_password = function() {
           $('.password').empty();
           $('.bits_of_entropy').empty();
-          $('.one, .two, .three, .four, .five').empty();
+          $('.seconds, .minutes, .hours, .days, .years').empty();
           $('.stats_box').hide();
+          // Set welcome password text
+          $('.welcome_password').html("Click <kbd>Generate</kbd> to generate a password");
         };
     // Check checkboxes
     $('input[type="checkbox"]:checked').parent('label').addClass('active');

@@ -16,7 +16,7 @@
     <script src="js/pace.min.js"></script>
     <script src="js/random.js"></script>
     <script src="js/wordlist.js"></script>
-    <script src="js/tsest.js"></script>
+    <!-- For testing <script src="js/test.js"></script> -->
     <!-- End of JavaScript files -->
   </head>
   <body style="background-image: url('images/background.png');">
@@ -158,18 +158,18 @@
           <div class="well bits_of_entropy"></div>
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">Case Scenario</h3>
+              <h3 class="panel-title worstcaseheader"></h3>
             </div>
             <div class="panel-body worstcasetext"></div>
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                    <td>Seconds</td>
-                    <td>Minutes</td>
-                    <td>Hours</td>
-                    <td>Days</td>
-                    <td>Years</td>
+                    <td class="secondsheader"></td>
+                    <td class="minutesheader"></td>
+                    <td class="hoursheader"></td>
+                    <td class="daysheader"></td>
+                    <td class="yearsheader"></td>
                   </tr>
                 </thead>
                 <tbody>
@@ -191,12 +191,21 @@
     </div>
     <!-- End of Container -->
     <!-- Buttons Box -->
-    <div class="buttons_box password_generation">
+    <div class="buttons_box password_page">
       <div class="btn-group" role="group" aria-label="buttons">
         <button type="button" class="btn btn-primary generate">Generate</button>
         <button type="button" class="btn btn-primary reset">Reset</button>
       </div>
     </div>
     <!-- End of Buttons Box -->
+    <!-- Entropy Bar -->
+    <div class="entropy_bar">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div>
+    </div>
+    <!-- End of Entropy Bar -->
   </body>
 </html>
