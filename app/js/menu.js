@@ -14,8 +14,8 @@ var template = [
         label: 'Add Entropy',
         accelerator: 'CmdOrCtrl+E',
         click: function() {
-          $('.password_generation').hide();
-          $('.entropy').show();
+          $('.password_page').hide();
+          $('.welcome_entropy').text("Move your mouse to add entropy");
         }
       }
     ]
