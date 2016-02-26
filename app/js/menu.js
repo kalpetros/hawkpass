@@ -15,8 +15,7 @@ var template = [
         accelerator: 'CmdOrCtrl+E',
         click: function() {
           $('.password_page').hide();
-          $('.entropy_bar').show();
-          $('.welcome_entropy').text("Move your mouse to add entropy");
+          $('.entropy_page').show();
         }
       }
     ]
@@ -52,7 +51,7 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 1.1.0-Alpha',
+        label: 'Version 1.2.0-Alpha',
         enabled: 'FALSE'
       },
       {

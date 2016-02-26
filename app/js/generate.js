@@ -191,7 +191,6 @@
             return val;
           };
           // Show boxes and append stats on button (Generate) click
-          $('.buttons_box').show();
           $('.welcome_password').empty();
           $('.stats_box').show();
           $('.bits_of_entropy').text(entropy + " bits of entropy");
