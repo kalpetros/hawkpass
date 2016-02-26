@@ -26,10 +26,9 @@
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of Fusionbox.
 (function(exports, $) {
-  var TOTAL_EVENTS = 500
-    , events_left = TOTAL_EVENTS;
+  var TOTAL_EVENTS = 500, events_left = TOTAL_EVENTS;
 
-  //if ( random.ready() ) {
+  //if (random.ready()) {
     //events_left = 0;
   //};
 
@@ -140,15 +139,13 @@
   };
 
   $(document).ready(function() {
-    // Set welcome password text
-    $('.welcome_password').html("Click <kbd>Generate</kbd> to generate a password");
-    // Stats box is initially hidden
-    $('.stats_box').hide();
-    // Entropy bar is initially hidden
-    $('.entropy_bar').hide();
+    // Set welcome entropy text
+    $('.welcome_entropy').text("Move your mouse to add entropy");
+    // Initially hide password page
+    $('.password_page').hide();
 
-    var more_entropy_progress_div = $('.entropy_mouse .entropy_bar div')
-      , reminder_elem = $('.entropy_mouse .reminder')
+    var more_entropy_progress_div = $('.entropy_bar .progress_bar div')
+      , reminder_elem = $('.entropy_bar .reminder')
       , show_reminder = function() { reminder_elem.addClass('visible'); }
       , reminder_timeout = null
       // Generate password on button (Generate) click
@@ -175,8 +172,9 @@
           $('.password').text(sentence.password);
 
           var entropy = sentence.entropy.toFixed(1)
-            , possibles = Math.pow(2, sentence.entropy - 1) // on average, only half the possibilities will be needed.  so -1 exponent
+            // on average, only half the possibilities will be needed.  so -1 exponent
             // 1e12 = 1x10^12 (1 trillion)
+            , possibles = Math.pow(2, sentence.entropy - 1)
             , large_guesses_per_seconds = 1e12 * 1
             , large_guesses_per_minutes = 1e12 * 60
             , large_guesses_per_hour = 1e12 * 3600
@@ -192,7 +190,8 @@
             }
             return val;
           };
-          // Show boxes and append stats
+          // Show boxes and append stats on button (Generate) click
+          $('.buttons_box').show();
           $('.welcome_password').empty();
           $('.stats_box').show();
           $('.bits_of_entropy').text(entropy + " bits of entropy");
@@ -211,12 +210,12 @@
         }
       // Remove everything on button (Reset) click
       , reset_password = function() {
+          // Set welcome password text
+          $('.welcome_password').html("Click <kbd>Generate</kbd> to generate a password");
           $('.password').empty();
           $('.bits_of_entropy').empty();
           $('.seconds, .minutes, .hours, .days, .years').empty();
           $('.stats_box').hide();
-          // Set welcome password text
-          $('.welcome_password').html("Click <kbd>Generate</kbd> to generate a password");
         };
     // Check checkboxes
     $('input[type="checkbox"]:checked').parent('label').addClass('active');
@@ -228,8 +227,8 @@
     $('.reset').click(reset_password);
 
     if ( events_left == 0 ) {
-      $('.entropy_mouse').hide();
-      $('.mainb').show();
+      $('.entropy_page').hide();
+      $('.password_page').show();
       generate_password();
     }
 
@@ -242,8 +241,8 @@
       random.addEntropy(x + y + ms);
       events_left--;
       if (  events_left == 0 ) {
-        $('.entropy_mouse').hide();
-        $('.mainb').show();
+        $('.entropy_page').hide();
+        $('.password_page').show();
         generate_password();
       }
       else if ( events_left > 0 && events_left % 10 == 0 )
@@ -252,7 +251,7 @@
       }
     };
 
-    $(document).on('mousemove', function(event) {
+    $(document).mousemove(function(event){
       add_entropy(event.clientX, event.clientY, event.timeStamp);
     }).on('touchmove', function(event) {
       if ( !random.ready() && navigator.userAgent.match(/android/i) ) {
