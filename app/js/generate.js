@@ -144,7 +144,7 @@
     // Initially hide password page
     $('.password_page').hide();
 
-    var more_entropy_progress_div = $('.entropy_bar .progress_bar div')
+    var more_entropy_progress_div = $('.entropy_bar .progress .progress-bar')
       , reminder_elem = $('.entropy_bar .reminder')
       , show_reminder = function() { reminder_elem.addClass('visible'); }
       , reminder_timeout = null
