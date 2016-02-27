@@ -51,7 +51,7 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 1.3.0-Alpha',
+        label: 'Version 1.3.1-Alpha',
         enabled: 'FALSE'
       },
       {
