@@ -1,5 +1,5 @@
-// Copyright 2011 Gavin Wahl, Colin Thomas-Arnold, Fusionbox.
-// Updated and modified by Petros Kalogiannakis 2016.
+// Copyright 2011-2016 Gavin Wahl, Colin Thomas-Arnold, Fusionbox.
+// Updated and modified by Petros Kalogiannakis.
 // All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without modification, are

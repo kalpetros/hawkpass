@@ -24,7 +24,8 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     title: "Hawkpass",
     width: 800,
-    height: 600
+    height: 600,
+    icon: ""
   });
 
   // and load the index.html of the app.

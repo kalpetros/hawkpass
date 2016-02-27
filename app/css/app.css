@@ -74,8 +74,7 @@ kbd {
   border-radius: 0 !important;
 }
 /* Position of buttons_box, entropy_bar */
-.buttons_box,
-.entropy_bar {
+.buttons_box {
   position: absolute;
   bottom: 0;
   /* Set the fixed height of the footer here */
@@ -92,7 +91,13 @@ kbd {
 }
 /* Entropy progress bar style */
 .progress {
-  height: 60px;
+  background: transparent;
+  height: 100%;
+  width: 100%;
   margin-bottom: 0;
   border-radius: 0px;
+  position: fixed;
+}
+.progress-bar {
+  background: rgba(0, 0, 0, 0.19999999999999996);
 }

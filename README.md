@@ -64,3 +64,6 @@ and then run the command below to start packaging:
 ```
 npm run-script package
 ```
+## Licence
+
+MIT
