@@ -17,7 +17,7 @@
     "electron-prebuilt": "~0.36.8"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "electron main.js",
     "package": "electron-packager ./ Hawkpass --all --out ~/Projects/Hawkpass --version 0.36.8 --overwrite"
   }
 }
