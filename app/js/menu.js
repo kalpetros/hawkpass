@@ -8,19 +8,6 @@ const Menu = remote.Menu;
 
 var template = [
   {
-    label: 'Entropy',
-    submenu: [
-      {
-        label: 'Add Entropy',
-        accelerator: 'CmdOrCtrl+E',
-        click: function() {
-          $('.password_page').hide();
-          $('.entropy_page').show();
-        }
-      }
-    ]
-  },
-  {
     label: 'View',
     submenu: [
       {
@@ -51,7 +38,7 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 1.3.1-Alpha',
+        label: 'Version 1.4.1-Alpha',
         enabled: 'FALSE'
       },
       {
