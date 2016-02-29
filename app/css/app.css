@@ -33,8 +33,11 @@ kbd {
 /* Well background color */
 .well {
   color: white;
-  background-color: #2e2e2e !important;
-  border-style: none !important;
+  background-color: #21252b !important;
+  border-left: 1px solid black !important;
+  border-right: 1px solid black !important;
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
 }
 /* Width of btn-group */
 .btn-group {

@@ -1,17 +1,16 @@
 {
   "name": "hawkpass-desktop",
   "description": "Desktop password generator built using electron",
-  "version": "1.4.1-Alpha",
+  "version": "1.4.2-Alpha",
   "author": "Petros Kalogiannakis (@kalpetros)",
   "licence": "MIT",
   "homepage": "https://github.com/kalpetros/hawkpass-desktop",
+  "repository": "https://github.com/kalpetros/hawkpass-desktop",
   "bugs": {
     "url": "https://github.com/kalpetros/hawkpass-desktop/issues"
   },
   "main": "main.js",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron-packager": "~5.2.1",
     "electron-prebuilt": "~0.36.8"
