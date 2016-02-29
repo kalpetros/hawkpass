@@ -1,0 +1,29 @@
+{
+  "name": "hawkpass-desktop",
+  "description": "Desktop password generator built using electron",
+  "main": "main.js",
+  "authors": [
+    "Petros Kalogiannakis (@kalpetros)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "hawkpass"
+  ],
+  "homepage": "https://github.com/kalpetros/hawkpass-desktop",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
+  }
+}
