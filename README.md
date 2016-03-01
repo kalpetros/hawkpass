@@ -66,4 +66,4 @@ npm run-script package
 ```
 ## Licence
 
-MIT
+[MIT](https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE)
