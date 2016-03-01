@@ -4,6 +4,8 @@
 // module that can be used in a render
 // process via the remote module
 const remote = require('electron').remote;
+const shell = require('electron').shell;
+const ipcRenderer = require('electron').ipcRenderer;
 const Menu = remote.Menu;
 
 var template = [
@@ -38,17 +40,20 @@ var template = [
     role: 'help',
     submenu: [
       {
-        label: 'Version 1.4.3-Alpha',
-        enabled: 'FALSE'
+        label: 'View Licence',
+        // Show the licence
+        click: function() {
+          shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE');
+        }
       },
       {
         type: 'separator'
       },
       {
         label: 'Frequently Asked Questions',
-        // Toggle FAQ Modal
+        // Load FAQ page
         click: function() {
-          $('#faq').modal('toggle');
+          ipcRenderer.send('show-faq');
         }
       },
       {
@@ -56,17 +61,23 @@ var template = [
       },
       {
         label: 'Report Issue',
-        click: function() { require('electron').shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/issues') }
+        click: function() {
+          shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/issues');
+        }
       },
       {
         type: 'separator'
       },
       {
         label: 'About Hawkpass',
-        // Toggle About Modal
+        // Load About page
         click: function() {
-          $('#about').modal('toggle');
+          ipcRenderer.send('show-about');
         }
+      },
+      {
+        label: 'Version 1.5.3-alpha',
+        enabled: 'FALSE'
       }
     ]
   },

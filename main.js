@@ -3,7 +3,7 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-
+const ipcMain = require('electron').ipcMain;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
@@ -20,8 +20,8 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
+  // Create the main window
+  var mainWindow = new BrowserWindow({
     title: "Hawkpass",
     width: 800,
     height: 600,
@@ -31,8 +31,22 @@ app.on('ready', function() {
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
-  // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  // Show the main window
+  ipcMain.on('show-main', function() {
+    mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+  });
+  // Create the about window
+  ipcMain.on('show-about', function() {
+    mainWindow.loadURL('file://' + __dirname + '/app/templates/about.html');
+  });
+  // Create the faq window
+  ipcMain.on('show-faq', function() {
+    mainWindow.loadURL('file://' + __dirname + '/app/templates/faq.html');
+  });
+  // Create the licence window
+  ipcMain.on('show-licence', function() {
+    mainWindow.loadURL('file://' + __dirname + '/LICENCE');
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

@@ -91,6 +91,7 @@ kbd {
   height: 60px;
   width: 50%;
   border-radius: 0 !important;
+  outline: none !important;
 }
 /* Entropy progress bar style */
 .progress {

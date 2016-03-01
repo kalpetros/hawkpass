@@ -1,7 +1,7 @@
 {
   "name": "hawkpass-desktop",
   "description": "Desktop password generator built using electron",
-  "version": "1.4.3-Alpha",
+  "version": "1.5.3-alpha",
   "author": "Petros Kalogiannakis (@kalpetros)",
   "licence": "MIT",
   "homepage": "https://github.com/kalpetros/hawkpass-desktop",

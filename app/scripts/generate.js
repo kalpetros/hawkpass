@@ -26,7 +26,7 @@
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of Fusionbox.
 (function(exports, $) {
-  var TOTAL_EVENTS = 100, events_left = TOTAL_EVENTS;
+  var TOTAL_EVENTS = 500, events_left = TOTAL_EVENTS;
 
   //if (random.ready()) {
     //events_left = 0;
