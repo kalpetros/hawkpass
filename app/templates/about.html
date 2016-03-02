@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/about.css">
     <link rel="stylesheet" type="text/css" href="../styles/common.css">
     <!-- End of Stylesheets -->
@@ -16,7 +17,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="btn btn-default navbar-btn" onclick="ipcRenderer.send('show-main');">< Return to app</button>
+          <button type="button" class="btn btn-default navbar-btn" onclick="ipcRenderer.send('show-main');"><i class="fa fa-chevron-left"></i> Return to app</button>
         </div>
       </div>
     </nav>
@@ -24,10 +25,10 @@
       <div class="about">
         <h1><img src="../graphics/logo.png"></h1>
         <h1>Hawkpass</h1>
-        <h4>1.5.3-alpha</h4>
-        <p>The source code is available on <a href="https://github.com/kalpetros/hawkpass-desktop">Github</a></p>
+        <h4><i class="fa fa-code-fork"></i> 1.5.4-alpha</h4>
+        <p>The source code is available on <a href="https://github.com/kalpetros/hawkpass-desktop"><i class="fa fa-github"></i> Github</a></p>
         <p><b>Inspired by:</b> <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> by <a href="http://world.std.com/~reinhold/">Arnold G. Reinhold</a>, <a href="https://github.com/fusionbox/mouseware">Mouseware</a> by <a href="https://github.com/fusionbox">Fusionbox</a>, <a href="https://xkcd.com/936/">XKCD</a></p>
-        <p><b>Coded</b> by <a href="https://github.com/kalpetros">Petros Kalogiannakis</a></p>
+        <p><b>Coded</b> by <a href="https://github.com/kalpetros">Petros Kalogiannakis (@kalpetros)</a></p>
       </div>
     </div>
   </body>

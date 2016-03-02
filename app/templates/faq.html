@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/faq.css">
     <link rel="stylesheet" type="text/css" href="../styles/common.css">
     <!-- End of Stylesheets -->
@@ -16,14 +17,11 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="btn btn-default navbar-btn" onclick="ipcRenderer.send('show-main');">< Return to app</button>
+          <button type="button" class="btn btn-default navbar-btn" onclick="ipcRenderer.send('show-main');"><i class="fa fa-chevron-left"></i> Return to app</button>
         </div>
       </div>
     </nav>
     <div class="container">
-      <div class="title">
-        <h1>Frequently Asked Questions</h1>
-      </div>
       <div class="panel-group faq" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingZero">

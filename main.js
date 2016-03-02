@@ -25,7 +25,7 @@ app.on('ready', function() {
     title: "Hawkpass",
     width: 800,
     height: 600,
-    icon: ""
+    icon: "app/graphics/icon.png"
   });
 
   // and load the index.html of the app.
