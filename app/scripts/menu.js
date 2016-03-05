@@ -76,7 +76,7 @@ var template = [
         }
       },
       {
-        label: 'Version 1.5.4-alpha',
+        label: 'Version 1.0.0-alpha.5',
         enabled: 'FALSE'
       }
     ]
