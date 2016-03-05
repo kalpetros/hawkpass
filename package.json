@@ -15,8 +15,16 @@
     "electron-packager": "~5.2.1",
     "electron-prebuilt": "~0.36.8"
   },
+  "build": {
+  	"app-bundle-id": "hawkpass",
+  	"app-category-type": "Tools",
+  	"iconUrl": ""
+  },
   "scripts": {
     "start": "electron main.js",
-    "package": "electron-packager ./ Hawkpass --all --out ~/Projects/Hawkpass --version 0.36.8 --overwrite"
+    "package": "electron-packager ./ Hawkpass --all --out ~/Projects/Hawkpass --version 0.36.8 --overwrite",
+    "postinstall": "install-app-deps",
+    "pack": "build",
+    "dist": "build"
   }
 }
