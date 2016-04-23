@@ -14,22 +14,32 @@ The latest version of Hawkpass can be downloaded from the [releases](https://git
 
 ## Testing locally
 
-To run the app locally you'll need to install *electron-prebuilt* with npm.
+First install the necessary dependencies by running:
+```
+$ bower install
+```
+If you don't have bower installed run the following:
+```
+$ sudo npm install -g bower
+```
+Then to run the app locally you'll also need to install *electron-prebuilt* using npm.
 
 Install *electron-prebuilt* globally:
 ```
-sudo npm install electron-prebuilt -g
+$ sudo npm install electron-prebuilt -g
 ```
 or locally:
 ```
-npm install electron-prebuilt
+$ npm install electron-prebuilt
 ```
 Once *electron-prebuilt* is installed you will only need to run the following in the app's source directory:
 ```
 // If you installed it globally
-electron .
+$ electron .
 // If you installed it locally
-./node_modules/.bin/electron .
+$ ./node_modules/.bin/electron .
+// or run
+$ npm start
 ```
 
 ## Packaging Hawkpass
@@ -38,11 +48,11 @@ Packaging Hawkpass for your platform can be done using [electron-packager](https
 
 Type the following to install *electron-packager*
 ```
-npm install --save-dev electron-packager
+$ npm install --save-dev electron-packager
 ```
 Generally the command to package an application is:
 ```
-electron-packager <location> <name> <platform> <architecture> <version> <options>
+$ electron-packager <location> <name> <platform> <architecture> <version> <options>
 ```
 | <> | Description  |
 | --- | --- |
@@ -55,7 +65,7 @@ electron-packager <location> <name> <platform> <architecture> <version> <options
 
 An example would be:
 ```
-electron-packager ~/Projects/hawkpass-desktop Hawkpass --all --version=0.36.8 --out=~/Projects --icon=~/Project/icon.icns
+$ electron-packager ~/Projects/hawkpass-desktop Hawkpass --all --version=0.36.8 --out=~/Projects --icon=~/Project/icon.icns
 ```
 To simplify the process we can create the following script inside *package.json*
 ```
@@ -66,8 +76,15 @@ To simplify the process we can create the following script inside *package.json*
 ```
 and then run the command below to start packaging:
 ```
-npm run-script package
+$ npm run-script package
 ```
+
+## Contributing
+
+Contributions are welcome! To get started please read the [contribution guidelines](https://github.com/kalpetros/hawkpass-desktop/blob/master/CONTRIBUTING.md).
+
+Report any issues or feature requests you have [here](https://github.com/kalpetros/hawkpass-desktop/issues).
+
 ## Licence
 
 [MIT](https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE)
