@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="styles/pace.css">
     <!-- End of Stylesheets -->
     <!-- JavaScript files -->
     <script>window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.min.js');</script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/clipboard/dist/clipboard.min.js"></script>
     <script src="scripts/crypto-sha256.js"></script>
     <script src="scripts/generate.js"></script>
     <script src="scripts/menu.js"></script>
-    <script src="scripts/pace.min.js"></script>
     <script src="scripts/random.js"></script>
     <script src="scripts/wordlist.js"></script>
+    <script src="scripts/clipboard.js"></script>
     <!-- End of JavaScript files -->
   </head>
   <body style="background: #282c34;">
@@ -31,7 +32,11 @@
         <h1 class="welcome_password"></h1>
         <!-- Password Box -->
         <div class="password_box">
-          <div class="well password"></div>
+          <div class="well">
+            <span class="password" id="password"></span>
+            <button class="btn btn-primary clipboard" data-clipboard-target="#password"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+            <span class="copied">Copied!</span>
+          </div>
         </div>
         <!-- End of Password Box -->
         <!-- Preferences Box -->

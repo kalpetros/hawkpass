@@ -38,6 +38,7 @@ kbd {
   border-right: 1px solid black !important;
   border-top: 1px solid black !important;
   border-bottom: 1px solid black !important;
+  border-radius: 0 !important;
 }
 /* Width of btn-group */
 .btn-group {
@@ -53,12 +54,26 @@ kbd {
 .password_box {
   border-top: 4px solid #337ab7;
 }
-.password {
+.clipboard {
+  height: 100%;
+  float: left;
+  margin-top: -18px;
+  margin-left: -18px;
   border-radius: 0 !important;
+  outline: none !important;
+}
+.clipboard:hover {
+  background-color: #337ab7;
+  color: #FFFFFF;
+}
+.copied {
+  background: #337ab7;
+  float: right;
+  margin-top: -18px;
+  margin-right: -18px;
+  padding: 5px;
 }
 /* Style of preferences_box */
-.preferences_box {
-}
 /* Preferences buttons */
 .preferences {
   /*background-color: yellow !important;*/
