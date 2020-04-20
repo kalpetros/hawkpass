@@ -6,3 +6,12 @@ node_js:
   - "0.11"
   - "0.10"
   - "iojs"
+
+jobs:
+  include:
+    - stage: test
+      script: ls
+    - # stage name not required, will continue to use `test`
+      script: ls
+    - stage: deploy
+      script: ls
