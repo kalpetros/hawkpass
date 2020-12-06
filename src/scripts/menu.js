@@ -15,25 +15,22 @@ var template = [
       {
         label: 'Reload',
         accelerator: 'CmdOrCtrl+R',
-        click: function(item, focusedWindow) {
-          if (focusedWindow)
-            focusedWindow.reload();
-        }
+        click: function (item, focusedWindow) {
+          if (focusedWindow) focusedWindow.reload();
+        },
       },
       {
         label: 'Toggle Full Screen',
-        accelerator: (function() {
-          if (process.platform == 'darwin')
-            return 'Ctrl+Command+F';
-          else
-            return 'F11';
+        accelerator: (function () {
+          if (process.platform == 'darwin') return 'Ctrl+Command+F';
+          else return 'F11';
         })(),
-        click: function(item, focusedWindow) {
+        click: function (item, focusedWindow) {
           if (focusedWindow)
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Help',
@@ -42,44 +39,48 @@ var template = [
       {
         label: 'View Licence',
         // Show the licence
-        click: function() {
-          shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE');
-        }
+        click: function () {
+          shell.openExternal(
+            'https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE'
+          );
+        },
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Frequently Asked Questions',
         // Load FAQ page
-        click: function() {
+        click: function () {
           ipcRenderer.send('show-faq');
-        }
+        },
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Report Issue',
-        click: function() {
-          shell.openExternal('https://github.com/kalpetros/hawkpass-desktop/issues');
-        }
+        click: function () {
+          shell.openExternal(
+            'https://github.com/kalpetros/hawkpass-desktop/issues'
+          );
+        },
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'About Hawkpass',
         // Load About page
-        click: function() {
+        click: function () {
           ipcRenderer.send('show-about');
-        }
+        },
       },
       {
         label: 'Version 1.0.0-alpha.6',
-        enabled: 'FALSE'
-      }
-    ]
+        enabled: 'FALSE',
+      },
+    ],
   },
 ];
 
