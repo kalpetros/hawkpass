@@ -1,9 +1,0 @@
-/* Centers div */
-.faq {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  width: 80%;
-  margin-left: -25%;
-  margin-top: -150px;
-}
