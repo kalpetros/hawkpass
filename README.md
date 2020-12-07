@@ -13,69 +13,28 @@ The latest version of Hawkpass can be downloaded from the [releases](https://git
 ## Testing locally
 
 First install the necessary dependencies by running:
-```
-$ bower install
-```
-If you don't have bower installed run the following:
-```
-$ sudo npm install -g bower
-```
-Then to run the app locally you'll also need to install *electron-prebuilt* using npm.
 
-Install *electron-prebuilt* globally:
 ```
-$ sudo npm install electron-prebuilt -g
+$ npm install
 ```
-or locally:
+
+To run the app in your browser type:
+
 ```
-$ npm install electron-prebuilt
-```
-Once *electron-prebuilt* is installed you will only need to run the following in the app's source directory:
-```
-// If you installed it globally
-$ electron .
-// If you installed it locally
-$ ./node_modules/.bin/electron .
-// or run
-$ npm start
+$ npm run develop
 ```
 
 ## Packaging Hawkpass
 
-Packaging Hawkpass for your platform can be done using [electron-packager](https://github.com/maxogden/electron-packager).
+Packaging Hawkpass for your platform can be done using [Electron Forge](https://www.electronforge.io/).
 
-Type the following to install *electron-packager*
-```
-$ npm install --save-dev electron-packager
-```
-Generally the command to package an application is:
-```
-$ electron-packager <location> <name> <platform> <architecture> <version> <options>
-```
-| <> | Description  |
-| --- | --- |
-| location | location of your project  |
-| name | name of your project |
-| platform | for which platform you want to build. Use `--all` to build for Windows, Mac and Linux |
-| architecture | for which architecture you want to build. `--x86`, `--x64`, `--all` for both |
-| version | which electron version to use `--version` |
-| options | output location `--out`, icon `--icon` |
+To generate platform specific distributables type:
 
-An example would be:
 ```
-$ electron-packager ~/Projects/hawkpass-desktop Hawkpass --all --version=0.36.8 --out=~/Projects --icon=~/Project/icon.icns
+$ npm run make
 ```
-To simplify the process we can create the following script inside *package.json*
-```
-"scripts": {
-  "start": "electron .",
-  "package": "electron-packager ./ Hawkpass --all --out ~/Projects/Hawkpass --version 0.36.8 --overwrite"
-}
-```
-and then run the command below to start packaging:
-```
-$ npm run-script package
-```
+
+Check the **out** folder for the created package.
 
 ## Contributing
 
