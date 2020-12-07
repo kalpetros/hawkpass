@@ -9,8 +9,6 @@ const addEntropy = (x, y, ms) => {
   random.addEntropy(x + y + ms);
   events_left--;
   if (events_left == 0) {
-    // $('.entropy_page').hide();
-    // $('.password_page').show();
     generate_password();
   } else if (events_left > 0 && events_left % 10 == 0) {
     more_entropy_progress_div.css(
@@ -21,9 +19,10 @@ const addEntropy = (x, y, ms) => {
 };
 
 const addReplacement = (replacements, string) => {
-  let chars = string.split(''),
-    i,
-    replaceable = new RegExp('[' + Object.keys(replacements) + ']', 'g');
+  const random = new Random();
+  const replaceable = new RegExp('[' + Object.keys(replacements) + ']', 'g');
+  let chars = string.split('');
+  let i;
 
   do {
     i = random.random(chars.length);
@@ -38,19 +37,20 @@ const addReplacement = (replacements, string) => {
 };
 
 const sentencePassword = (template, options) => {
-  let entropy = 0,
-    sentence = [],
-    haystack,
-    token,
-    i;
-
   const random = new Random();
+  let entropy = 0;
+  let sentence = [];
+  let haystack;
+  let token;
+  let i;
 
   for (i = 0; i < template.length; i++) {
     token = template[i];
     haystack = words[token];
 
-    if (!haystack) throw new Error('Unknown token "' + token + '"');
+    if (!haystack) {
+      throw new Error('Unknown token "' + token + '"');
+    }
 
     sentence.push(random.choice(haystack));
     entropy += Math.log(haystack.length) / Math.log(2);
@@ -69,7 +69,7 @@ const sentencePassword = (template, options) => {
     password: sentence.join(' '),
     entropy: entropy,
   };
-  if (options.useNumber) {
+  if (options.useNumbers) {
     const new_password = addReplacement(
       {
         a: '4',
@@ -86,7 +86,7 @@ const sentencePassword = (template, options) => {
     ret.password = new_password.password;
     ret.entropy += new_password.entropy;
   }
-  if (options.useSymbol) {
+  if (options.useSymbols) {
     const new_password = addReplacement(
       {
         a: '@',
@@ -135,8 +135,8 @@ export const generate = options => {
   }
 
   const sentence = sentencePassword(template, {
-    useNumber: options.useNumber,
-    useSymbol: options.useSymbol,
+    useNumbers: options.useNumbers,
+    useSymbols: options.useSymbols,
     useSpaces: options.useSpaces,
   });
 
@@ -146,25 +146,38 @@ export const generate = options => {
   const possibles = Math.pow(2, sentence.entropy - 1);
   const large_guesses_per_seconds = 1e12 * 1;
   const large_guesses_per_minutes = 1e12 * 60;
-  const large_guesses_per_hour = 1e12 * 3600;
+  const large_guesses_per_hours = 1e12 * 3600;
   const large_guesses_per_days = 1e12 * 86400;
   const large_guesses_per_years = 1e12 * 31536000;
+  const guessesPerSecond = commaSeparateNumber(
+    (possibles / large_guesses_per_seconds).toFixed(1)
+  );
+  const guessesPerMinute = commaSeparateNumber(
+    (possibles / large_guesses_per_minutes).toFixed(1)
+  );
+  const guessesPerHour = commaSeparateNumber(
+    (possibles / large_guesses_per_hours).toFixed(1)
+  );
+  const guessesPerDay = commaSeparateNumber(
+    (possibles / large_guesses_per_days).toFixed(1)
+  );
+  const guessesPerYear = commaSeparateNumber(
+    (possibles / large_guesses_per_years).toFixed(1)
+  );
 
-  const password = {
+  const data = {
     password: sentence.password,
     entropy: entropy,
-    gps: commaSeparateNumber(
-      (possibles / large_guesses_per_seconds).toFixed(1)
-    ),
-    gpm: commaSeparateNumber(
-      (possibles / large_guesses_per_minutes).toFixed(1)
-    ),
-    gph: commaSeparateNumber((possibles / large_guesses_per_hour).toFixed(1)),
-    gpd: commaSeparateNumber((possibles / large_guesses_per_days).toFixed(1)),
-    gpy: commaSeparateNumber((possibles / large_guesses_per_years).toFixed(1)),
+    guesses: {
+      per_second: guessesPerSecond,
+      per_minute: guessesPerMinute,
+      per_hour: guessesPerHour,
+      per_day: guessesPerDay,
+      per_year: guessesPerYear,
+    },
   };
 
-  return password;
+  return data;
 };
 
 function commaSeparateNumber(val) {

@@ -7,31 +7,52 @@
  */
 
 export function Random() {
-  var buffer = '';
-  var local_storage =
-    typeof window.localStorage != 'undefined' ? localStorage : {};
-  var TOTAL_EVENTS = 500;
-  var events_left = TOTAL_EVENTS;
-  var that = this;
+  const TOTAL_EVENTS = 500;
+  const that = this;
+  let buffer = '';
+  // let localStorage =
+  // typeof window.localStorage != 'undefined' ? localStorage : {};
+  let localStorage = {
+    random_seed: '',
+  };
+  let events_left = TOTAL_EVENTS;
 
   function seedOracle(buffer) {
-    return CryptoJS.SHA256(buffer + 'seed');
+    return Crypto.SHA256(buffer + 'seed');
   }
 
   function outputOracle(buffer) {
-    return CryptoJS.SHA256(buffer + 'output');
+    return Crypto.SHA256(buffer + 'output');
+  }
+
+  /**
+   * Core random generation function.
+   *
+   * Returns a cryptographically secure pseudo-random 256-bit hexadecimal
+   * string.  Though, usually just
+   * '1ec1c26b50d5d3c58d9583181af8076655fe00756bf7285940ba3670f99fcba0'.
+   */
+  function getRandomBuffer() {
+    const output = outputOracle(buffer);
+    buffer = seedOracle(buffer);
+    // updateLocalStorage();
+    return output;
   }
 
   function random_2(bits) {
-    var output = getRandomBuffer();
-    if (output.length * 4 < bits) throw new Error('not enough bits in buffer');
-    var hex = output.words.slice(0, Math.ceil(bits / 4));
+    const output = getRandomBuffer();
+
+    if (output.length * 4 < bits) {
+      throw new Error('not enough bits in buffer');
+    }
+
+    const hex = output.slice(0, Math.ceil(bits / 4));
     return parseInt(hex, 16);
   }
 
   function updateLocalStorage() {
     if (that.ready()) {
-      local_storage.random_seed = outputOracle(buffer);
+      localStorage.random_seed = outputOracle(buffer);
       // You must rehash the buffer after (or before) outputting the hash.
       // Otherwise you may get the same result again and again.
       buffer = seedOracle(buffer);
@@ -45,29 +66,18 @@ export function Random() {
   setTimeout(updateLocalStorageTimeout, 5000);
 
   /**
-   * Core random generation function.
-   *
-   * Returns a cryptographically secure pseudo-random 256-bit hexadecimal
-   * string.  Though, usually just
-   * '1ec1c26b50d5d3c58d9583181af8076655fe00756bf7285940ba3670f99fcba0'.
-   */
-  function getRandomBuffer() {
-    var output = outputOracle(buffer);
-    buffer = seedOracle(buffer);
-    updateLocalStorage();
-    return output;
-  }
-
-  /**
    * `random` returns n such that `0 <= n < max`
    * `max` must be greater than 0.
    */
   this.random = function (max) {
-    if (max < 1) throw new Error('`random()` expects a max greater than 0.');
-    else if (max == 1) return 0;
+    if (max < 1) {
+      throw new Error('`random()` expects a max greater than 0.');
+    } else if (max == 1) {
+      return 0;
+    }
 
-    var bits = Math.ceil(Math.log(max) / Math.log(2));
-    var n;
+    const bits = Math.ceil(Math.log(max) / Math.log(2));
+    let n;
 
     do {
       n = random_2(bits);
@@ -79,10 +89,14 @@ export function Random() {
   /**
    * Returns a random element from an array.
    */
-  this.choice = function (ary) {
-    if (ary.length == 0) return;
-    var i = this.random(ary.length);
-    return ary[i];
+  this.choice = function (arr) {
+    if (arr.length == 0) {
+      return;
+    }
+
+    const i = this.random(arr.length);
+
+    return arr[i];
   };
 
   /**
@@ -101,7 +115,7 @@ export function Random() {
   };
 
   // Main
-  if (local_storage.random_seed) {
+  if (localStorage.random_seed) {
     /* we've got a seed from last time, add time to it just in case...*/
     buffer = seedOracle(localStorage.random_seed + new Date().valueOf());
     events_left = TOTAL_EVENTS = 0;
