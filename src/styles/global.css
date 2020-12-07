@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: rgba(31, 41, 55, 1);
+}
+
 .cursor-copy {
   cursor: copy;
 }

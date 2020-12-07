@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Panel } from './Panel';
+
 export const Entropy = props => {
   const { value } = props;
 
   return (
-    <div className="bg-gray-700 text-gray-200 text-center p-8 rounded-xl mb-4">
+    <Panel>
       <div className="text-xl font-semibold truncate">{value}</div>
       <div className="truncate">bits of entropy</div>
-    </div>
+    </Panel>
   );
 };
 
