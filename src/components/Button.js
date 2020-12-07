@@ -3,8 +3,8 @@ import React from 'react';
 
 export const Button = props => {
   const { title, bgColor, bgHoverColor, onClick } = props;
-  const colorClasses = `${bgColor} hover:${bgHoverColor}`;
-  const className = `${colorClasses} text-gray-200 text-xl focus:outline-none font-semibold p-8 rounded-xl truncate`;
+  const colorClasses = `${bgColor} hover:${bgHoverColor} text-gray-200`;
+  const className = `${colorClasses} text-xl focus:outline-none font-semibold p-8 rounded-xl truncate shadow-lg`;
 
   return (
     <button className={className} onClick={onClick}>

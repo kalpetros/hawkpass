@@ -17,27 +17,27 @@ export const Options = props => {
     <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-4">
       <Button
         title="Numbers"
-        bgColor={useNumbers ? 'bg-black' : 'bg-gray-900'}
+        bgColor={useNumbers ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useNumbers')}
       />
       <Button
         title="Symbols"
-        bgColor={useSymbols ? 'bg-black' : 'bg-gray-900'}
+        bgColor={useSymbols ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useSymbols')}
       />
       <Button
         title="Spaces"
-        bgColor={useSpaces ? 'bg-black' : 'bg-gray-900'}
+        bgColor={useSpaces ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useSpaces')}
       />
       <Button
         title="Diceware"
-        bgColor={useDiceware ? 'bg-black' : 'bg-gray-900'}
+        bgColor={useDiceware ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useDiceware')}
       />
       <Button
         title="More words"
-        bgColor={useMoreWords ? 'bg-black' : 'bg-gray-900'}
+        bgColor={useMoreWords ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useMoreWords')}
       />
     </div>
