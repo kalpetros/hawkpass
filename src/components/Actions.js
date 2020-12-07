@@ -1,22 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Button } from './Button';
+
 export const Actions = props => {
   const { onGenerate, onReset } = props;
+
   return (
-    <div className="grid grid-flow-col gap-4">
-      <button
-        className="bg-gray-900 text-gray-200 text-xl font-semibold p-8 rounded-xl"
-        onClick={onGenerate}
-      >
-        Generate
-      </button>
-      <button
-        className="bg-gray-900 text-gray-200 text-xl font-semibold p-8 rounded-xl"
-        onClick={onReset}
-      >
-        Reset
-      </button>
+    <div className="grid sm:grid-cols-2 gap-4">
+      <Button title="Generate" onClick={onGenerate} />
+      <Button title="Reset" onClick={onReset} />
     </div>
   );
 };

@@ -36,13 +36,11 @@ const App = () => {
 
   return (
     <Layout>
-      <div className="grid gap-4">
-        <Password value={data.password} />
-        <Options options={options} onSetOptions={handleSetOptions} />
-        <Entropy value={data.entropy} />
-        <Scenario values={data.guesses} />
-        <Actions onGenerate={handleGenerate} onReset={handleReset} />
-      </div>
+      <Password value={data.password} />
+      <Options options={options} onSetOptions={handleSetOptions} />
+      <Entropy value={data.entropy} />
+      <Scenario values={data.guesses} />
+      <Actions onGenerate={handleGenerate} onReset={handleReset} />
     </Layout>
   );
 };
