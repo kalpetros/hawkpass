@@ -1,6 +1,4 @@
-![](logo.png)
-
-A simple cross-platform cryptographically secure random number generator that uses entropy collected by your mouse movements to generate easy to remember passwords based on the [Diceware](http://world.std.com/~reinhold/diceware.html) list.
+A simple cross-platform cryptographically secure (SHA-256) random number generator that uses entropy collected from your mouse movements to generate easy to remember passwords based on the [Diceware](http://world.std.com/~reinhold/diceware.html) list.
 
 Hawkpass Desktop is the desktop version of the web app [Hawkpass](https://www.petroskal.com/hawkpass), and it is built on [Electron](https://github.com/atom/electron).
 
