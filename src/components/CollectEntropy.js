@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Random } from '../random';
 
@@ -67,4 +68,9 @@ export const CollectEntropy = props => {
       </div>
     </div>
   );
+};
+
+CollectEntropy.propTypes = {
+  options: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };

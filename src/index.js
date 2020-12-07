@@ -25,10 +25,10 @@ const App = () => {
   const random = useMemo(() => new Random(), []);
 
   useEffect(() => {
-    if (Object.keys(data).includes('password')) {
+    if (Object.keys(data).includes('password') && !entropyCollected) {
       setEntropyCollected(true);
     }
-  }, [data]);
+  }, [entropyCollected, data]);
 
   const handleSetOptions = option => {
     setOptions({ ...options, [option]: options[option] ? false : true });
@@ -46,10 +46,7 @@ const App = () => {
   return (
     <Layout>
       {!entropyCollected ? (
-        <CollectEntropy
-          options={options}
-          setData={setData}
-        />
+        <CollectEntropy options={options} setData={setData} />
       ) : null}
       <Password value={data.password} />
       <Options options={options} onSetOptions={handleSetOptions} />
