@@ -7,7 +7,9 @@ export const Password = props => {
   const { value } = props;
 
   return (
-    <Panel style={value !== '-' ? { cursor: 'copy' } : null}>{value}</Panel>
+    <Panel style={value !== '-' ? { cursor: 'copy' } : null}>
+      <span className="text-xl font-semibold">{value}</span>
+    </Panel>
   );
 };
 
