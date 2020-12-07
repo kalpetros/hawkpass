@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export const Layout = ({ children }) => {
-  return <div className="h-full w-screen p-8">{children}</div>;
+  return <div className="max-w-screen-lg mx-auto p-8">{children}</div>;
 };
 
 Layout.propTypes = {
