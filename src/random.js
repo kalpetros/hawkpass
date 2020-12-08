@@ -14,11 +14,11 @@ export function Random() {
     typeof window.localStorage != 'undefined' ? localStorage : {};
 
   function seedOracle(buffer) {
-    return CryptoJS.SHA256(buffer + 'seed').toString();
+    return Crypto.SHA256(buffer + 'seed').toString();
   }
 
   function outputOracle(buffer) {
-    return CryptoJS.SHA256(buffer + 'output').toString();
+    return Crypto.SHA256(buffer + 'output').toString();
   }
 
   /**
