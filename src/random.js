@@ -14,11 +14,11 @@ export function Random() {
     typeof window.localStorage != 'undefined' ? localStorage : {};
 
   function seedOracle(buffer) {
-    return Crypto.SHA256(buffer + 'seed');
+    return CryptoJS.SHA256(buffer + 'seed').toString();
   }
 
   function outputOracle(buffer) {
-    return Crypto.SHA256(buffer + 'output');
+    return CryptoJS.SHA256(buffer + 'output').toString();
   }
 
   /**
@@ -267,10 +267,7 @@ export function Random() {
     return data;
   };
 
-  // Main
-  // if (localStorage.random_seed) {
-  //   /* we've got a seed from last time, add time to it just in case...*/
-  //   buffer = seedOracle(localStorage.random_seed + new Date().valueOf());
-  //   events_left = TOTAL_EVENTS = 0;
-  // }
+  if (localStorage.random_seed) {
+    buffer = seedOracle(localStorage.random_seed + new Date().valueOf());
+  }
 }

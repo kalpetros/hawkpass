@@ -4,13 +4,13 @@ import React, { useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Layout } from './components/Layout';
+import { CollectEntropy } from './components/CollectEntropy';
 import { Password } from './components/Password';
 import { Options } from './components/Options';
 import { Entropy } from './components/Entropy';
 import { Scenario } from './components/Scenario';
 import { Actions } from './components/Actions';
 import { Random } from './random';
-import { CollectEntropy } from './components/CollectEntropy';
 
 const App = () => {
   const [entropyCollected, setEntropyCollected] = useState(false);
@@ -44,16 +44,18 @@ const App = () => {
   };
 
   return (
-    <Layout>
+    <>
       {!entropyCollected ? (
-        <CollectEntropy options={options} setData={setData} />
+        <CollectEntropy options={options} setData={setData} fn={random} />
       ) : null}
-      <Password value={data.password} />
-      <Options options={options} onSetOptions={handleSetOptions} />
-      <Entropy value={data.entropy} />
-      <Scenario values={data.guesses} />
-      <Actions onGenerate={handleGenerate} onReset={handleReset} />
-    </Layout>
+      <Layout>
+        <Password value={data.password} />
+        <Options options={options} onSetOptions={handleSetOptions} />
+        <Entropy value={data.entropy} />
+        <Scenario values={data.guesses} />
+        <Actions onGenerate={handleGenerate} onReset={handleReset} />
+      </Layout>
+    </>
   );
 };
 

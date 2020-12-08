@@ -3,10 +3,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Random } from '../random';
 
 export const CollectEntropy = props => {
-  const { options, setData } = props;
+  const { options, setData, fn } = props;
   const [strokeDasharray, setStrokeDashArray] = useState(0);
   const [percentage, setPercentage] = useState(0);
-  const random = useMemo(() => new Random(), []);
   let events = 0;
 
   useEffect(() => {
@@ -22,18 +21,18 @@ export const CollectEntropy = props => {
     const total = clientX + clientY + timeStamp;
 
     setStrokeDashArray(events);
-    setPercentage(parseInt((events / 500) * 100), 0);
+    setPercentage(parseInt((events / 50) * 100), 0);
 
-    random.addEntropy(total);
+    fn.addEntropy(total);
 
-    if (events >= 500) {
+    if (events >= 50) {
       removeEvent();
     }
   };
 
   const removeEvent = () => {
     window.removeEventListener('mousemove', addEntropy);
-    const data = random.generate(options);
+    const data = fn.generate(options);
     setData(data);
   };
 
@@ -73,4 +72,5 @@ export const CollectEntropy = props => {
 CollectEntropy.propTypes = {
   options: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  fn: PropTypes.object.isRequired,
 };
