@@ -10,7 +10,7 @@ import { Options } from './components/Options';
 import { Entropy } from './components/Entropy';
 import { Scenario } from './components/Scenario';
 import { Actions } from './components/Actions';
-import { Random } from './random';
+import { Pwd } from './pwd';
 
 const App = () => {
   const [entropyCollected, setEntropyCollected] = useState(false);
@@ -22,7 +22,8 @@ const App = () => {
     useDiceware: false,
     useMoreWords: false,
   });
-  const random = useMemo(() => new Random(), []);
+  // const random = useMemo(() => new Random(), []);
+  const pwd = useMemo(() => new Pwd(), []);
 
   useEffect(() => {
     if (Object.keys(data).includes('password') && !entropyCollected) {
@@ -35,7 +36,7 @@ const App = () => {
   };
 
   const handleGenerate = () => {
-    const result = random.generate(options);
+    const result = pwd.generate(options);
     setData(result);
   };
 
@@ -46,7 +47,7 @@ const App = () => {
   return (
     <>
       {!entropyCollected ? (
-        <CollectEntropy options={options} setData={setData} fn={random} />
+        <CollectEntropy options={options} setData={setData} fn={pwd} />
       ) : null}
       <Layout>
         <Password value={data.password} />

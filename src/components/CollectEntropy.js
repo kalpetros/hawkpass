@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useMemo, useState } from 'react';
-import { Random } from '../random';
+import React, { useEffect, useState } from 'react';
 
 export const CollectEntropy = props => {
   const { options, setData, fn } = props;
@@ -23,7 +22,7 @@ export const CollectEntropy = props => {
     setStrokeDashArray(events);
     setPercentage(parseInt((events / 50) * 100), 0);
 
-    fn.addEntropy(total);
+    fn.random.addEntropy(total);
 
     if (events >= 50) {
       removeEvent();
