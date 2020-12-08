@@ -20,11 +20,11 @@ export const CollectEntropy = props => {
     const total = clientX + clientY + timeStamp;
 
     setStrokeDashArray(events);
-    setPercentage(parseInt((events / 50) * 100), 0);
+    setPercentage(parseInt((events / 200) * 100), 0);
 
     fn.random.addEntropy(total);
 
-    if (events >= 50) {
+    if (events >= 200) {
       removeEvent();
     }
   };
