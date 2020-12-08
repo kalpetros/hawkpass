@@ -10,6 +10,7 @@ import { Options } from './components/Options';
 import { Entropy } from './components/Entropy';
 import { Scenario } from './components/Scenario';
 import { Actions } from './components/Actions';
+import { toast, ToastContainer } from './components/toast';
 import { Pwd } from './pwd';
 
 const App = () => {
@@ -22,12 +23,13 @@ const App = () => {
     useDiceware: false,
     useMoreWords: false,
   });
-  // const random = useMemo(() => new Random(), []);
   const pwd = useMemo(() => new Pwd(), []);
 
   useEffect(() => {
     if (Object.keys(data).includes('password') && !entropyCollected) {
       setEntropyCollected(true);
+    } else if (Object.keys(data).length === 0 && entropyCollected) {
+      toast('Password cleared');
     }
   }, [entropyCollected, data]);
 
@@ -46,6 +48,7 @@ const App = () => {
 
   return (
     <>
+      <ToastContainer />
       {!entropyCollected ? (
         <CollectEntropy options={options} setData={setData} fn={pwd} />
       ) : null}

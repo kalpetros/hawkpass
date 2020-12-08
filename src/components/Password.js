@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Panel } from './Panel';
+import { toast } from './toast';
 
 export const Password = props => {
   const { value } = props;
@@ -10,6 +11,7 @@ export const Password = props => {
     const element = document.getElementById('password');
     element.select();
     document.execCommand('copy');
+    toast('Copied to clipboard');
   };
 
   return (
