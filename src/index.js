@@ -43,7 +43,9 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setData({});
+    if (Object.keys(data).length > 0) {
+      setData({});
+    }
   };
 
   return (

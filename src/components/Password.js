@@ -14,15 +14,23 @@ export const Password = props => {
     toast('Copied to clipboard');
   };
 
+  let className =
+    'bg-transparent focus:outline-none text-xl font-semibold w-full text-center';
+  className = value !== '-' ? `${className} cursor-copy` : className;
+
   return (
     <Panel
       style={value !== '-' ? { cursor: 'copy' } : null}
-      onClick={handleCopyPassword}
+      onClick={
+        value !== '-'
+          ? handleCopyPassword
+          : () => toast('Generate a password first')
+      }
     >
       <input
         type="text"
         value={value}
-        className="bg-transparent focus:outline-none text-xl font-semibold w-full text-center cursor-copy"
+        className={className}
         id="password"
         readOnly
       />
