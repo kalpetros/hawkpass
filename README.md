@@ -17,7 +17,7 @@ A simple cross-platform cryptographically secure (SHA-256) random number generat
 
 ## Live version
 
-For a live version visit https://kalpetros.github.io/hawkpass-web/
+For a live version visit https://kalpetros.github.io/hawkpass
 
 ## Download
 
