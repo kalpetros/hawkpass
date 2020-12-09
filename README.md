@@ -1,8 +1,13 @@
-![](https://img.shields.io/travis/kalpetros/hawkpass)
-![](https://img.shields.io/github/license/kalpetros/hawkpass)
-![](https://img.shields.io/snyk/vulnerabilities/github/kalpetros/hawkpass)
-![](https://img.shields.io/github/v/release/kalpetros/hawkpass?include_prereleases)
-![](https://img.shields.io/github/downloads/kalpetros/hawkpass/total)
+<p align="center">
+  <img height="200px" src="icon.png"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/travis/kalpetros/hawkpass"/>
+  <img src="https://img.shields.io/github/license/kalpetros/hawkpass"/>
+  <img src="https://img.shields.io/snyk/vulnerabilities/github/kalpetros/hawkpass"/>
+  <img src="https://img.shields.io/github/v/release/kalpetros/hawkpass?include_prereleases"/>
+  <img src="https://img.shields.io/github/downloads/kalpetros/hawkpass/total"/>
+</p>
 
 A simple cross-platform cryptographically secure (SHA-256) random number generator that uses entropy collected from your mouse movements to generate **easy to remember** passwords based on the [Diceware](http://world.std.com/~reinhold/diceware.html) list.
 
