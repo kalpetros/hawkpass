@@ -52,6 +52,10 @@ function createMenu() {
             );
           },
         },
+        { type: 'separator' },
+        {
+          label: `Version ${app.getVersion()}`,
+        },
       ],
     },
   ];
