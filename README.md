@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/github/downloads/kalpetros/hawkpass/total"/>
 </p>
 <p align="center">
-A simple cross-platform cryptographically secure (SHA-256) random number generator that uses entropy collected from your mouse movements to generate **easy to remember passwords** based on the <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> list.
+A simple cross-platform cryptographically secure (SHA-256) random number generator that uses entropy collected from your mouse movements to generate <b>easy to remember passwords</b> based on the <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a> list.
 </p>
 <p align="center">
   <img src="hawkpass.png"/>
