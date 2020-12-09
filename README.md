@@ -8,12 +8,14 @@
   <img src="https://img.shields.io/github/v/release/kalpetros/hawkpass?include_prereleases"/>
   <img src="https://img.shields.io/github/downloads/kalpetros/hawkpass/total"/>
 </p>
-
+<p align="center">
 A simple cross-platform cryptographically secure (SHA-256) random number generator that uses entropy collected from your mouse movements to generate **easy to remember passwords** based on the [Diceware](http://world.std.com/~reinhold/diceware.html) list.
 
-Hawkpass Desktop is the desktop version of the web app [Hawkpass](https://www.petroskal.com/hawkpass), and it is built on [Electron](https://github.com/atom/electron).
-
-![](hawkpass.png)
+Hawkpass Desktop is the desktop version of the web app [Hawkpass](https://www.petroskal.com/hawkpass), and it is built on [Electron](https://github.ccom/atom/electron).
+</p>
+<p align="center">
+  <img src="hawkpass.png"/>
+</p>
 
 ## Download
 
