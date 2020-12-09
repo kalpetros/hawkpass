@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "author": "Petros Kalogiannakis (@kalpetros)",
   "licence": "MIT",
-  "homepage": "https://github.com/kalpetros/hawkpass-desktop",
-  "repository": "https://github.com/kalpetros/hawkpass-desktop",
+  "homepage": "https://github.com/kalpetros/hawkpass",
+  "repository": "https://github.com/kalpetros/hawkpass",
   "bugs": {
-    "url": "https://github.com/kalpetros/hawkpass-desktop/issues"
+    "url": "https://github.com/kalpetros/hawkpass/issues"
   },
   "main": "main.js",
   "scripts": {

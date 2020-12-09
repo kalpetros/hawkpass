@@ -16,7 +16,8 @@ export const Password = props => {
 
   let className =
     'bg-transparent focus:outline-none text-xl font-semibold w-full text-center';
-  className = value !== '-' ? `${className} cursor-copy` : className;
+  className =
+    value !== '-' ? `${className} cursor-copy` : `${className} cursor-default`;
 
   return (
     <Panel

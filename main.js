@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -12,7 +12,57 @@ function createWindow() {
   win.loadFile('dist/index.html');
 }
 
-app.whenReady().then(createWindow);
+function createMenu() {
+  const template = [
+    {
+      label: 'Hawkpass',
+      submenu: [
+        {
+          role: 'quit',
+        },
+      ],
+    },
+    {
+      label: 'Help',
+      submenu: [
+        {
+          label: 'Repository',
+          click: async () => {
+            const { shell } = require('electron');
+            await shell.openExternal('https://github.com/kalpetros/hawkpass');
+          },
+        },
+        { type: 'separator' },
+        {
+          label: 'Report Issue...',
+          click: async () => {
+            const { shell } = require('electron');
+            await shell.openExternal(
+              'https://github.com/kalpetros/hawkpass/issues/new'
+            );
+          },
+        },
+        { type: 'separator' },
+        {
+          label: "What's New...",
+          click: async () => {
+            const { shell } = require('electron');
+            await shell.openExternal(
+              'https://github.com/kalpetros/hawkpass/releases'
+            );
+          },
+        },
+      ],
+    },
+  ];
+  const menu = new Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+}
+
+app.whenReady().then(() => {
+  createWindow();
+  createMenu();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
