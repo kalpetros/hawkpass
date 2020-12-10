@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
+import { toast } from './toast';
+
 export const CollectEntropy = props => {
   const { options, setData, fn } = props;
   const [strokeDasharray, setStrokeDashArray] = useState(0);
@@ -8,7 +10,19 @@ export const CollectEntropy = props => {
   let events = 0;
 
   useEffect(() => {
+    toast('Move your mouse to generate entropy', { bgColor: 'bg-indigo-900' });
+
+    const interval = setInterval(() => {
+      if (events < 150) {
+        toast('Waiting for your input...', { bgColor: 'bg-indigo-900' });
+      }
+    }, 15000);
+
     window.addEventListener('mousemove', addEntropy);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   const addEntropy = event => {
