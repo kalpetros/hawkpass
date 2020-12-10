@@ -51,13 +51,6 @@ export function Random() {
     buffer = seedOracle(buffer);
   }
 
-  // function updateLocalStorageTimeout() {
-  //   updateLocalStorage();
-  //   setTimeout(updateLocalStorageTimeout, 5000);
-  // }
-
-  // setTimeout(updateLocalStorageTimeout, 5000);
-
   /**
    * `random` returns n such that `0 <= n < max`
    * `max` must be greater than 0.
