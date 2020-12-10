@@ -7,3 +7,14 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       script: npm run test
+    - stage: "Deploy"
+      name: "Deploy to GitHub Pages"
+      script: npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        local_dir: dist
+        on:
+          branch: master
