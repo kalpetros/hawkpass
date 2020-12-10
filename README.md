@@ -2,7 +2,7 @@
   <img height="200px" src="icon.png"/>
 </p>
 <p align="center">
-  <img src="https://img.shields.io/travis/kalpetros/hawkpass"/>
+  <img src="https://img.shields.io/travis/com/kalpetros/hawkpass"/>
   <img src="https://img.shields.io/github/license/kalpetros/hawkpass"/>
   <img src="https://img.shields.io/snyk/vulnerabilities/github/kalpetros/hawkpass"/>
   <img src="https://img.shields.io/github/v/release/kalpetros/hawkpass?include_prereleases"/>
