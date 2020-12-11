@@ -75,6 +75,9 @@ Check the **out** folder for the created package.
 - [How to Make a Super-Secure Password Using Dice](https://ssd.eff.org/en/module/animated-overview-how-make-super-secure-password-using-dice)
 - [Using Password Managers to Stay Safe Online](https://ssd.eff.org/en/module/animated-overview-using-password-managers-stay-safe-online)
 - [EFF Dice-Generated Passphrases](https://www.eff.org/dice)
+- [Deep Dive: EFF's New Wordlists for Random Passphrases](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases)
+- [Arnold Reinhold's Diceware list](https://theworld.com/~reinhold/diceware.html)
+- [Guessing human-chosen secrets](http://jbonneau.com/doc/2012-jbonneau-phd_thesis.pdf)
 
 ## Useful tools
 
