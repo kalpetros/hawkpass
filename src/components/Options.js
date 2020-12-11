@@ -52,11 +52,6 @@ export const Options = props => {
           +
         </div>
       </div>
-      {/* <Button
-        title="More words"
-        bgColor={useMoreWords ? 'bg-gray-900' : 'bg-gray-800'}
-        onClick={() => onSetOptions('useMoreWords')}
-      /> */}
     </div>
   );
 };

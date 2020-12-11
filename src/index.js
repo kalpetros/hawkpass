@@ -63,9 +63,9 @@ const App = () => {
   return (
     <>
       <ToastContainer />
-      {/* {!entropyCollected ? (
+      {!entropyCollected ? (
         <CollectEntropy options={options} setData={setData} fn={pwd} />
-      ) : null} */}
+      ) : null}
       <Layout>
         <Password value={data.password} />
         <Options
