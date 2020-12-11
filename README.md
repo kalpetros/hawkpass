@@ -79,4 +79,4 @@ Report any issues or feature requests you have [here](https://github.com/kalpetr
 
 [MIT](https://github.com/kalpetros/hawkpass-desktop/blob/master/LICENSE)
 
-[1]: (https://www.eff.org/dice)
+[1]: https://www.eff.org/dice
