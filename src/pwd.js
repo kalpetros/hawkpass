@@ -103,26 +103,18 @@ export function Pwd(randomFn) {
   };
 
   this.generate = options => {
-    let template = ['adjective', 'noun', 'verb', 'adjective', 'noun'];
+    const keys = ['article', 'adjective', 'noun', 'verb'];
+    let template = [];
 
-    if (options.useMoreWords) {
-      template = [
-        'article',
-        'adjective',
-        'noun',
-        'verb',
-        'article',
-        'adjective',
-        'noun',
-      ];
-    }
+    [...Array(options.words)].map((_, index) => {
+      const key = keys[index % keys.length];
 
-    if (options.useDiceware) {
-      template = ['diceware', 'diceware', 'diceware', 'diceware', 'diceware'];
-
-      if (options.useMoreWords)
-        template = template.concat(['diceware', 'diceware']);
-    }
+      if (options.useDiceware) {
+        template.push('diceware');
+      } else {
+        template.push(key);
+      }
+    });
 
     const sentence = this.sentencePassword(template, {
       useNumbers: options.useNumbers,

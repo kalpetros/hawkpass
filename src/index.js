@@ -21,7 +21,7 @@ const App = () => {
     useSymbols: false,
     useSpaces: false,
     useDiceware: false,
-    useMoreWords: false,
+    words: 5,
   });
   const pwd = useMemo(() => new Pwd(), []);
 
@@ -35,6 +35,18 @@ const App = () => {
 
   const handleSetOptions = option => {
     setOptions({ ...options, [option]: options[option] ? false : true });
+  };
+
+  const handleSetWords = event => {
+    const type = event.currentTarget.dataset.type;
+
+    if (type === 'increase' && options.words < 14) {
+      setOptions({ ...options, ['words']: options.words + 1 });
+    }
+
+    if (type === 'decrease' && options.words > 5) {
+      setOptions({ ...options, ['words']: options.words - 1 });
+    }
   };
 
   const handleGenerate = () => {
@@ -51,12 +63,16 @@ const App = () => {
   return (
     <>
       <ToastContainer />
-      {!entropyCollected ? (
+      {/* {!entropyCollected ? (
         <CollectEntropy options={options} setData={setData} fn={pwd} />
-      ) : null}
+      ) : null} */}
       <Layout>
         <Password value={data.password} />
-        <Options options={options} onSetOptions={handleSetOptions} />
+        <Options
+          options={options}
+          onSetOptions={handleSetOptions}
+          onSetWords={handleSetWords}
+        />
         <Entropy value={data.entropy} />
         <Scenario values={data.guesses} />
         <Actions onGenerate={handleGenerate} onReset={handleReset} />

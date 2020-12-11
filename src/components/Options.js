@@ -9,9 +9,9 @@ export const Options = props => {
     useSymbols,
     useSpaces,
     useDiceware,
-    useMoreWords,
+    words,
   } = props.options;
-  const { onSetOptions } = props;
+  const { onSetOptions, onSetWords } = props;
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-4">
@@ -35,11 +35,28 @@ export const Options = props => {
         bgColor={useDiceware ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useDiceware')}
       />
-      <Button
+      <div className="grid grid-cols-3 text-gray-200 text-center text-xl font-semibold p-8 rounded-xl shadow-lg">
+        <div
+          className="cursor-pointer"
+          data-type="decrease"
+          onClick={onSetWords}
+        >
+          -
+        </div>
+        <div>{words}</div>
+        <div
+          className="cursor-pointer"
+          data-type="increase"
+          onClick={onSetWords}
+        >
+          +
+        </div>
+      </div>
+      {/* <Button
         title="More words"
         bgColor={useMoreWords ? 'bg-gray-900' : 'bg-gray-800'}
         onClick={() => onSetOptions('useMoreWords')}
-      />
+      /> */}
     </div>
   );
 };
@@ -47,4 +64,5 @@ export const Options = props => {
 Options.propTypes = {
   options: PropTypes.object.isRequired,
   onSetOptions: PropTypes.func.isRequired,
+  onSetWords: PropTypes.func.isRequired,
 };
