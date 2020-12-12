@@ -106,7 +106,7 @@ export function Pwd(randomFn) {
     const keys = ['article', 'adjective', 'noun', 'verb'];
     let template = [];
 
-    [...Array(options.words)].map((_, index) => {
+    [...Array(options.words)].forEach((_, index) => {
       const key = keys[index % keys.length];
 
       if (options.useDiceware) {
