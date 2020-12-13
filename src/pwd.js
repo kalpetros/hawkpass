@@ -1,5 +1,5 @@
 import { Random } from './random';
-import { words } from './wordlist';
+import { words } from './wordlists/words';
 import { commaSeparateNumber } from './utils';
 
 export function Pwd(randomFn) {
@@ -12,13 +12,14 @@ export function Pwd(randomFn) {
 
     do {
       i = this.random.random(chars.length);
-    } while (!chars[i].match(replaceable));
+    } while (!chars[i].toLowerCase().match(replaceable));
 
-    chars[i] = replacements[chars[i]];
+    chars[i] = replacements[chars[i].toLowerCase()];
 
     return {
       password: chars.join(''),
-      entropy: Math.log(string.match(replaceable).length) / Math.log(2),
+      entropy:
+        Math.log(string.toLowerCase().match(replaceable).length) / Math.log(2),
     };
   };
 
@@ -32,7 +33,12 @@ export function Pwd(randomFn) {
 
     for (i = 0; i < template.length; i++) {
       token = template[i];
-      haystack = words[token];
+
+      if (options.useWordList === 'normal') {
+        haystack = words['normal'][token];
+      } else {
+        haystack = words[token];
+      }
 
       if (!haystack) {
         throw new Error('Unknown token "' + token + '"');
@@ -42,16 +48,33 @@ export function Pwd(randomFn) {
       entropy += Math.log(haystack.length) / Math.log(2);
     }
 
-    if (!options.useSpaces) {
-      // Capitalize the letters if we don't use spaces
+    if (options.useCase === 'lowercase') {
+      for (i = 0; i < sentence.length; i++) {
+        token = sentence[i];
+        token = token.toLowerCase();
+        sentence[i] = token;
+      }
+    }
+
+    if (options.useCase === 'uppercase') {
+      for (i = 0; i < sentence.length; i++) {
+        token = sentence[i];
+        token = token.toUpperCase();
+        sentence[i] = token;
+      }
+    }
+
+    if (options.useCase === 'capitalize') {
       for (i = 0; i < sentence.length; i++) {
         token = sentence[i];
         token = token.substr(0, 1).toUpperCase() + token.substr(1);
         sentence[i] = token;
       }
+    }
 
-      password = sentence.join('');
-    } else {
+    password = sentence.join('');
+
+    if (options.useSpaces) {
       password = sentence.join(' ');
     }
 
@@ -61,40 +84,36 @@ export function Pwd(randomFn) {
     };
 
     if (options.useNumbers) {
-      const new_password = this.addReplacement(
-        {
-          a: '4',
-          e: '3',
-          i: '1',
-          o: '0',
-          q: '9',
-          s: '5',
-          t: '7',
-          z: '2',
-        },
-        ret.password
-      );
+      const replacements = {
+        a: '4',
+        e: '3',
+        i: '1',
+        o: '0',
+        q: '9',
+        s: '5',
+        t: '7',
+        z: '2',
+      };
+      const new_password = this.addReplacement(replacements, ret.password);
       ret.password = new_password.password;
       ret.entropy += new_password.entropy;
     }
 
     if (options.useSymbols) {
-      const new_password = this.addReplacement(
-        {
-          a: '@',
-          b: '|3',
-          c: '(',
-          h: '|-|',
-          i: '!',
-          k: '|<',
-          l: '|',
-          t: '+',
-          v: '\\/',
-          s: '$',
-          x: '%',
-        },
-        ret.password
-      );
+      const replacements = {
+        a: '@',
+        b: '|3',
+        c: '(',
+        h: '|-|',
+        i: '!',
+        k: '|<',
+        l: '|',
+        t: '+',
+        v: '\\/',
+        s: '$',
+        x: '%',
+      };
+      const new_password = this.addReplacement(replacements, ret.password);
       ret.password = new_password.password;
       ret.entropy += new_password.entropy;
     }
@@ -106,13 +125,13 @@ export function Pwd(randomFn) {
     const keys = ['article', 'adjective', 'noun', 'verb'];
     let template = [];
 
-    [...Array(options.words)].forEach((_, index) => {
+    [...Array(options.useWords)].forEach((_, index) => {
       const key = keys[index % keys.length];
 
-      if (options.useDiceware) {
-        template.push('diceware');
-      } else {
+      if (options.useWordList === 'normal') {
         template.push(key);
+      } else {
+        template.push(options.useWordList);
       }
     });
 
@@ -120,6 +139,8 @@ export function Pwd(randomFn) {
       useNumbers: options.useNumbers,
       useSymbols: options.useSymbols,
       useSpaces: options.useSpaces,
+      useCase: options.useCase,
+      useWordList: options.useWordList,
     });
 
     const entropy = sentence.entropy.toFixed(1);

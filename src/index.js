@@ -11,6 +11,7 @@ import { Entropy } from './components/Entropy';
 import { Scenario } from './components/Scenario';
 import { Actions } from './components/Actions';
 import { toast, ToastContainer } from './components/toast';
+import { Portal } from './components/Portal';
 import { Pwd } from './pwd';
 
 const App = () => {
@@ -20,8 +21,9 @@ const App = () => {
     useNumbers: false,
     useSymbols: false,
     useSpaces: false,
-    useDiceware: false,
-    words: 5,
+    useWordList: 'original',
+    useCase: 'lowercase',
+    useWords: 5,
   });
   const pwd = useMemo(() => new Pwd(), []);
 
@@ -37,15 +39,21 @@ const App = () => {
     setOptions({ ...options, [option]: options[option] ? false : true });
   };
 
-  const handleSetWords = event => {
-    const type = event.currentTarget.dataset.type;
+  const handleSetWordList = option => {
+    setOptions({ ...options, ['useWordList']: option });
+  };
 
-    if (type === 'increase' && options.words < 14) {
-      setOptions({ ...options, ['words']: options.words + 1 });
+  const handleSetCase = option => {
+    setOptions({ ...options, ['useCase']: option });
+  };
+
+  const handleSetWords = action => {
+    if (action === 'increase' && options.useWords < 14) {
+      setOptions({ ...options, ['useWords']: options.useWords + 1 });
     }
 
-    if (type === 'decrease' && options.words > 5) {
-      setOptions({ ...options, ['words']: options.words - 1 });
+    if (action === 'decrease' && options.useWords > 5) {
+      setOptions({ ...options, ['useWords']: options.useWords - 1 });
     }
   };
 
@@ -66,16 +74,22 @@ const App = () => {
       {!entropyCollected ? (
         <CollectEntropy options={options} setData={setData} fn={pwd} />
       ) : null}
-      <Layout>
-        <Password value={data.password} />
+      <Portal>
         <Options
           options={options}
           onSetOptions={handleSetOptions}
           onSetWords={handleSetWords}
+          onSetCase={handleSetCase}
+          onSetWordList={handleSetWordList}
         />
-        <Entropy value={data.entropy} />
-        <Scenario values={data.guesses} />
-        <Actions onGenerate={handleGenerate} onReset={handleReset} />
+      </Portal>
+      <Layout>
+        <div className="grid gap-4">
+          <Password value={data.password} />
+          <Entropy value={data.entropy} />
+          <Scenario values={data.guesses} />
+          <Actions onGenerate={handleGenerate} onReset={handleReset} />
+        </div>
       </Layout>
     </>
   );

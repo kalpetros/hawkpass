@@ -7,7 +7,7 @@ export const Scenario = props => {
   const { per_second, per_minute, per_hour, per_day, per_year } = props.values;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-4">
+    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
       <Panel>
         <div className="text-xl font-semibold truncate">{per_second}</div>
         <div className="truncate">seconds</div>

@@ -50,7 +50,7 @@ export const CollectEntropy = props => {
   };
 
   return (
-    <div className="bg-black bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 grid items-center justify-center">
+    <div className="bg-black bg-opacity-80 fixed top-0 right-0 bottom-0 left-0 z-40 grid items-center justify-center">
       <div>
         <svg height="200" width="200">
           <circle

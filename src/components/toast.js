@@ -31,7 +31,7 @@ export const toast = (msg, options) => {
   }
 
   const element = document.createElement('div');
-  element.className = `${colors.bgColor} ${colors.textColor} font-semibold fixed p-4 rounded-xl shadow-lg z-50 show`;
+  element.className = `${colors.bgColor} ${colors.textColor} font-semibold fixed p-4 rounded-xl shadow-lg z-50 fadein-left`;
   element.style.top = topDistance;
   element.setAttribute('data-top', topDistance);
   element.innerText = msg;

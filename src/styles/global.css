@@ -10,17 +10,21 @@ body {
   cursor: copy;
 }
 
-.show {
-  animation: fadein 0.5s;
+.fadein-left {
+  animation: fadein-left 0.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
 
-@keyframes fadein {
+@keyframes fadein-left {
   0% {
     right: -100%;
   }
   100% {
     right: 1rem;
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
