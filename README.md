@@ -15,9 +15,9 @@ A simple cross-platform cryptographically secure (SHA-256) random number generat
   <img src="hawkpass.png"/>
 </p>
 
-## Live version
+## Web version
 
-For a live version visit https://kalpetros.github.io/hawkpass
+For the web version visit https://kalpetros.github.io/hawkpass
 
 ## Download
 
@@ -54,6 +54,24 @@ $ npm run make
 ```
 
 Check the **out** folder for the created package.
+
+## Word lists
+- Original by [Arnold G. Reinhold](https://theworld.com/~reinhold/diceware.wordlist.asc)
+- Modified by [EFF](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases)
+- Chinese by [cfbao](https://github.com/cfbao/chinese-diceware)
+- Czech by [Vladimir Sedmik](https://theworld.com/~reinhold/diceware_wordlist_cz.pdf)
+- Danish by [Povl Falk-Jensen](https://pastebin.com/rFatW8up)
+- German by [Simon Klima](https://theworld.com/~reinhold/diceware_german_msfw.txt)
+- Finnish by [Kai Puolamaki](https://kaip.iki.fi/noppaware/noppaware.txt)
+- French by [Joachim Dubuquoy-Portois](http://weber.fi.eu.org/software/diceware/francais.pdf)
+- Italian by [Tarin Gamberini](https://www.taringamberini.com/downloads/diceware_it_IT/lista-di-parole-diceware-in-italiano/4/word_list_diceware_it-IT-4.txt)
+- Japanese by [Hiroshi Yuki](http://s3.amazonaws.com/dotclue.org/diceware_jp.txt)
+- Latin by [Sebastian Mozejko](https://www.theworld.com/~reinhold/diceware_latin.txt.asc)
+- Norwegian by [Willy T. Koch](https://0101.no/diceware/diceware_nb_NO.txt)
+- Dutch by [Bart Van den Eynde](https://theworld.com/~reinhold/DicewareDutch.txt)
+- Portuguese by [Paxti Pierce](https://gist.github.com/patxipierce/3a96b1927b844ce47c04a242651bafc2)
+- Swedish by [Magnus Bodin](https://x42.com/diceware/diceware-sv.txt)
+- Turkish by [Mert Dirik](https://web.archive.org/web/20110716063648/http://dicewaretr.110mb.com/diceware_tr.txt)
 
 ## FAQ
 
