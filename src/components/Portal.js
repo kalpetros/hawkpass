@@ -1,4 +1,3 @@
-import { doc } from 'prettier';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -7,27 +6,27 @@ export const Portal = props => {
   const { children } = props;
   const [active, setActive] = useState(false);
   const container = document.getElementById('portal-container');
-  const className = `bg-gray-900 fixed top-0 p-4 p-8 h-full z-30 transition-all`;
-
-  useEffect(() => {
-    const element = document.getElementById('portal');
-    const width = element.offsetWidth;
-
-    if (active) {
-      element.style.left = 0;
-    } else {
-      element.style.left = `-${width}px`;
-    }
-  }, [active]);
+  const baseClassName = 'bg-gray-900 fixed p-8 z-30 transition-all';
+  const mobileClassName = `${
+    active ? 'top-1/4' : 'top-95'
+  } left-0 right-0 h-3/4 w-full rounded-t-3xl`;
+  const normalClassName = `${
+    active ? 'sm:left-0' : 'sm:-left-1/4'
+  } sm:top-0 sm:h-full sm:w-1/4 sm:right-auto sm:rounded-t-none`;
+  const className = `${baseClassName} ${mobileClassName} ${normalClassName}`;
 
   const handleToggle = () => {
     setActive(a => (a ? false : true));
   };
 
   return ReactDOM.createPortal(
-    <div className={className} id="portal">
+    <div className={className}>
       <div
-        className="bg-gray-900 text-gray-200 font-semibold p-4 rounded-r-xl cursor-pointer absolute top-32 sm:top-8 left-full"
+        className="bg-gray-200 h-1 w-1/4 m-auto absolute top-4 left-0 right-0 sm:hidden block"
+        onClick={handleToggle}
+      ></div>
+      <div
+        className="bg-gray-900 text-gray-200 font-semibold p-4 rounded-r-xl cursor-pointer absolute top-0 sm:top-8 left-0 sm:left-full hidden sm:block"
         onClick={handleToggle}
       >
         Options

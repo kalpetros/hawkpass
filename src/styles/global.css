@@ -25,6 +25,10 @@ body {
   }
 }
 
+.top-95 {
+  top: 95%;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }

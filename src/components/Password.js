@@ -14,11 +14,6 @@ export const Password = props => {
     toast('Copied to clipboard');
   };
 
-  let className =
-    'bg-transparent focus:outline-none text-xl font-semibold w-full text-center';
-  className =
-    value !== '-' ? `${className} cursor-copy` : `${className} cursor-default`;
-
   return (
     <Panel
       style={value !== '-' ? { cursor: 'copy' } : null}
@@ -31,8 +26,9 @@ export const Password = props => {
       <input
         type="text"
         value={value}
-        className={className}
+        className="bg-transparent focus:outline-none text-xl font-semibold w-full text-center"
         id="password"
+        style={value !== '-' ? { cursor: 'copy' } : { cursor: 'default' }}
         readOnly
       />
     </Panel>
