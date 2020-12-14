@@ -30,6 +30,7 @@ const App = () => {
   useEffect(() => {
     if (Object.keys(data).includes('password') && !entropyCollected) {
       setEntropyCollected(true);
+      document.body.style.overflow = 'initial';
     } else if (Object.keys(data).length === 0 && entropyCollected) {
       toast('Password cleared');
     }

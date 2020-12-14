@@ -12,6 +12,8 @@ export const CollectEntropy = props => {
   useEffect(() => {
     toast('Move your mouse to generate entropy', { bgColor: 'bg-indigo-900' });
 
+    document.body.style.overflow = 'hidden';
+
     const interval = setInterval(() => {
       if (events < 150) {
         toast('Waiting for your input...', { bgColor: 'bg-indigo-900' });
