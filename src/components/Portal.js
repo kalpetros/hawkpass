@@ -11,8 +11,8 @@ export const Portal = props => {
     active ? 'top-1/4' : 'top-95'
   } left-0 right-0 h-3/4 w-full rounded-t-3xl`;
   const normalClassName = `${
-    active ? 'sm:left-0' : 'sm:-left-1/4'
-  } sm:top-0 sm:h-full sm:w-1/4 sm:right-auto sm:rounded-t-none`;
+    active ? 'sm:left-0' : 'sm:-left-1/3'
+  } sm:top-0 sm:h-full sm:w-1/3 sm:right-auto sm:rounded-t-none`;
   const className = `${baseClassName} ${mobileClassName} ${normalClassName}`;
 
   const handleToggle = () => {
