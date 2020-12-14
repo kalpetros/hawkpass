@@ -19,6 +19,7 @@ export const CollectEntropy = props => {
     }, 15000);
 
     window.addEventListener('mousemove', addEntropy);
+    window.addEventListener('touchmove', addEntropy);
 
     return () => {
       clearInterval(interval);
@@ -45,6 +46,7 @@ export const CollectEntropy = props => {
 
   const removeEvent = () => {
     window.removeEventListener('mousemove', addEntropy);
+    window.removeEventListener('touchmove', addEntropy);
     const data = fn.generate(options);
     setData(data);
   };
