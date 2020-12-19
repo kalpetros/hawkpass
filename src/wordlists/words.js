@@ -2,6 +2,7 @@ import { original } from './en-original';
 import { eff } from './en-eff';
 import { normal } from './en-normal';
 import { latin } from './la';
+import { greek } from './el';
 import { italian } from './it';
 import { finnish } from './fi';
 import { pinyin } from './zh-pinyin';
@@ -21,6 +22,7 @@ export const words = {
   eff: eff,
   normal: normal,
   latin: latin,
+  greek: greek,
   italian: italian,
   finnish: finnish,
   pinyin: pinyin,
