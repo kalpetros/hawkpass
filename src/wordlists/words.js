@@ -16,6 +16,7 @@ import { danish } from './da';
 import { portuguese } from './pt';
 import { swedish } from './sv';
 import { turkish } from './tr';
+import { malay } from './ms';
 
 export const words = {
   original: original,
@@ -29,6 +30,7 @@ export const words = {
   german: german,
   french: french,
   japanese: romaji,
+  malay: malay,
   norwegian: norwegian,
   dutch: dutch,
   czech: czech,
